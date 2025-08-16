@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* footer */
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-top {
+      border-bottom: 1px solid #444;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-top a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-top a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1 1 180px;
+      font-size: 14px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .app-links {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .app-links img {
+      height: 40px;
+      margin: 0 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .social-icons img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .social-icons img:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .footer-columns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-top {
+        font-size: 12px;
+      }
+    }
+    /* footer end  */
+
+/* nav */
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation (will be colored dynamically) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor; /* Will be updated with JS */
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--active-color); /* This will be set via JS */
+}
+@media screen and (max-width: 480px) {
+        .content {
+            padding: 0 10px;
+        }
+        nav a.button {
+            text-align: center;
+        }
+    }
+    nav a.button {
+            border: 1px solid #19191a;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        section.hero {
+            text-align: center;
+            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
+            color: white;
+            padding: 100px 20px 50px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+
+
+/* from */
+  .form-section {
+    background: #f3f7fb;
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    color: #2b4c6f;
+    margin-bottom: 10px;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+    background: #2b4c6f;
+    margin: 0 auto 40px;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #2b4c6f;
+    box-shadow: 0 0 8px rgba(43, 76, 111, 0.2);
+  }
+
+  .submit-btn {
+    background: #2b4c6f;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .submit-btn:hover {
+    background: #1a3551;
+  }
+
+  @media (max-width: 600px) {
+    .form-section {
+      padding: 60px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+<!-- nav -->
+<nav class="navbar">
+  <div class="logo">MarketBuddy</div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active" data-color="#ffcc00">Home</a></li>
+    <li><a href="features.html" data-color="#00c2cb">Features</a></li>
+    <li><a href="about.html" data-color="#ff6f61">Our firm</a></li>
+    <li><a href="resourceC.html" data-color="#82e0aa">Resource Center</a></li>
+    <li><a href="login.html" class="button">Logins</a></li>
+  </ul>
+</nav>
+<style>
+  
+</style>
+
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // pehle prevent karo
+
+      // Remove active class and inline styles from all
+      links.forEach(l => {
+        l.classList.remove('active');
+        l.style.setProperty('--active-color', '');
+      });
+
+      // Add active class to clicked one
+      this.classList.add('active');
+
+      // Get color from data attribute and apply
+      const color = this.getAttribute('data-color');
+      this.style.setProperty('--active-color', color);
+
+      // Thoda delay deke page open kar do taki color dikhe
+      const href = this.getAttribute('href');
+      if (href && href !== "#") {
+        setTimeout(() => {
+          window.location.href = href;
+        }, 200); // 0.2 second delay
+      }
+    });
+  });
+</script>
+
+
+
+<!-- from  -->
+<div class="form-section">
+  <h2 class="form-title">Get In Touch</h2>
+  <div class="underline"></div>
+
+  <form class="contact-form" action="loginData" method="post">
+    <div class="form-group">
+      <input type="text" placeholder="Your Name" name="name" required />
+    </div>
+    <div class="form-group">
+      <input type="email" placeholder="Your Email" name="email" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" placeholder="Your Phone" name="phone" />
+    </div>
+    <div class="form-group">
+      <textarea placeholder="Your Message" rows="5" name="msg" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+
+
+
+<script>
+  const form = document.getElementById("contactForm");
+  const responseMessage = document.getElementById("responseMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value
+    };
+
+    try {
+      const res = await fetch("https://api.example.com/contact", { // <--- API endpoint yaha change karna
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        responseMessage.style.display = "block";
+        responseMessage.style.color = "green";
+        responseMessage.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        throw new Error("Server error");
+      }
+    } catch (err) {
+      responseMessage.style.display = "block";
+      responseMessage.style.color = "red";
+      responseMessage.textContent = "Failed to send message!";
+    }
+  });
+</script>
+
+
+
+<!-- footer -->
+  <footer>
+    <!-- Top links -->
+    <div class="footer-top">
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Community Guidelines</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Disclaimer</a>
+    </div>
+
+    <!-- Columns -->
+    <div class="footer-columns">
+      <!-- Subscribe -->
+      <div class="footer-column">
+        <h3>Subscribe</h3>
+        <ul>
+          <li><a href="#">Digital + Home Delivery</a></li>
+          <li><a href="#">Digital Access</a></li>
+          <li><a href="#">Globe2Go</a></li>
+          <li><a href="#">The New York Times</a></li>
+          <li><a href="#">Globe Email Newsletters</a></li>
+          <li><a href="#">Gift Subscription</a></li>
+        </ul>
+      </div>
+
+      <!-- Business Services -->
+      <div class="footer-column">
+        <h3>Business services</h3>
+        <ul>
+          <li><a href="#">Advertise with Us</a></li>
+          <li><a href="#">Group Subscriptions</a></li>
+          <li><a href="#">Globe Campus</a></li>
+          <li><a href="#">DataStore</a></li>
+          <li><a href="#">Globe Event Centre</a></li>
+          <li><a href="#">Leadership Institute</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Us -->
+      <div class="footer-column">
+        <h3>Contact us</h3>
+        <ul>
+          <li><a href="#">Address and Phone Number</a></li>
+          <li><a href="#">Standards Editor</a></li>
+          <li><a href="#">Staff</a></li>
+          <li><a href="#">SecureDrop</a></li>
+          <li><a href="#">Submit an article</a></li>
+        </ul>
+      </div>
+
+      <!-- Reader Services -->
+      <div class="footer-column">
+        <h3>Reader services</h3>
+        <ul>
+          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Technical Support & FAQs</a></li>
+          <li><a href="#">Subscriptions</a></li>
+          <li><a href="#">Member Benefits</a></li>
+          <li><a href="#">Privacy Settings</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="footer-column">
+        <h3>About us</h3>
+        <ul>
+          <li><a href="#">Company Information</a></li>
+          <li><a href="#">Work at The Globe</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Editorial Code of Conduct</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Licensing & Permissions</a></li>
+          <li><a href="#">Election Advertising Registry</a></li>
+          <li><a href="#">Modern Slavery Report</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- App Links -->
+    <div class="app-links">
+      <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#"><img src="https://www.svgrepo.com/show/303145/facebook-icon-logo.svg" alt="Facebook"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/303161/twitter-3-logo.svg" alt="Twitter"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/28145/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/349330/instagram.svg" alt="Instagram"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/354000/tiktok-icon-logo.svg" alt="TikTok"></a>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Globe and Mail Inc. All rights reserved.</p>
+      <p>351 King Street East, Toronto, ON, Canada | Andrew Saunders, President and CEO</p>
+    </div>
+  </footer>
+</body>
+</html>

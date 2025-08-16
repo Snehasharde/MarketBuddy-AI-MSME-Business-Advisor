@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinamay Archarya - Business & Investment Strategist</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  .profile-header {
+    text-align: center;
+    padding: 20px;
+  }
+  .profile-header img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+  }
+  .profile-header h1 {
+    margin-top: 15px;
+    font-size: 28px;
+  }
+  .profile-header h3 {
+    color: #555;
+    font-weight: normal;
+  }
+  .description {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+  }
+  /* Chat icon button */
+  .chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  /* Chat box hidden by default */
+  .chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    height: 0;
+    opacity: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  /* When open */
+  .chat-box.open {
+    height: 450px;
+    opacity: 1;
+  }
+  .chat-header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+  .chat-input button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile-header">
+    <img src="photo/ad1.jpeg" alt="Chinamay Archarya">
+    <h1>Shantanu Malik</h1>
+    <h3>AI & growth mentor</h3>
+  </div>
+
+  <div class="description">
+  <p>
+Advisor Santanu Malik is a distinguished AI and Growth Mentor dedicated to empowering businesses to achieve sustainable and scalable growth in today’s rapidly evolving digital landscape.</p>
+<p> With extensive expertise in artificial intelligence, machine learning, and data-driven strategies, Santanu specializes in guiding startups, SMEs, and established enterprises to harness the power of cutting-edge technologies for transformative impact.</p>
+<p> His approach is deeply client-centric, focusing on understanding each organization’s unique challenges and opportunities to tailor innovative solutions that optimize operations, enhance customer engagement, and accelerate market expansion.</p>
+<p> As a visionary mentor, Santanu Malik not only imparts practical knowledge but also inspires entrepreneurs and professionals to embrace AI’s potential to revolutionize their business models and leadership practices. </p>
+<p>His leadership and insights have helped numerous organizations elevate their competitive edge and establish a strong presence in the global marketplace. For businesses looking to future-proof their growth and leverage intelligent automation and analytics, Advisor Santanu Malik offers unparalleled guidance and mentorship to navigate the complexities of modern growth and digital transformation successfully.</p>
+</p>  
+  </div>
+</div>
+
+<!-- Chat Icon -->
+<div class="chat-icon" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">Chat with Chinamay</div>
+  <div class="chat-messages" id="chatMessages">
+    <p><strong>Chinamay:</strong> Hi! How can I assist you today?</p>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chatBox");
+  const chatMessages = document.getElementById("chatMessages");
+
+  function toggleChat() {
+    chatBox.classList.toggle("open");
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendMessage("You", message);
+    input.value = "";
+
+    try {
+      let res = await fetch("https://api.quotable.io/random");
+      if (!res.ok) throw new Error("API Error");
+      let data = await res.json();
+      appendMessage("Chinamay", data.content);
+    } catch (err) {
+      appendMessage("Chinamay", "Sorry, I couldn't fetch a response right now.");
+    }
+  }
+
+  function appendMessage(sender, text) {
+    const msg = document.createElement("p");
+    msg.innerHTML = '<strong>${sender}:</strong> ${text}';
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

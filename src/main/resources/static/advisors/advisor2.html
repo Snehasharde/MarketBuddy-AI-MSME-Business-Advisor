@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advisor Carousel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .carousel-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      position: relative; /* arrow position ke liye */
+    }
+    .carousel {
+      display: flex;
+      overflow-x: hidden; /* arrows ke saath scroll bar hatane ke liye */
+      scroll-behavior: smooth;
+      gap: 15px;
+    }
+    .card {
+      flex: 0 0 250px;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .view-btn {
+      background: #0b5cff;
+      color: rgb(242, 242, 247);
+      border: none;
+      padding: 8px 16px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .view-btn:hover {
+      background: #084bcc;
+    }
+
+    /* Arrow buttons */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgb(144, 125, 230);
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrow.left {
+      left: -20px;
+    }
+    .arrow.right {
+      right: -20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel-wrapper">
+  <button class="arrow left" id="leftBtn">&#8592;</button>
+  <div class="carousel" id="cardWrapper"></div>
+  <button class="arrow right" id="rightBtn">&#8594;</button>
+</div>
+
+<script>
+const advisors = [
+   { name: "Chinmay Acharya", role: "Business & investment strategist", desc: "", img: "photo/image7.jpeg",link:"adchinmay.html" },
+    { name: "Shantanu Malik", role: "AI & growth mentor.", desc: "", img: "photo/ad1.jpeg",link:"adsantanu.html"},
+    { name: "Neha Sharma", role: "Marketing & SME advisor", desc: "", img: "photo/image8.jpeg",link:"adneha.html" },
+    { name: "Arjun Mehta", role: "Finance & risk management expert", desc: "", img:"photo/ad11.jpeg" ,link:"adarjun.html"},
+    { name: "Priya Kapoor", role: "Branding & digital strategy coach", desc: "", img: "photo/ad3.jpeg",link:"adpriya.html" },
+    { name: "Rohan Malhotra", role: "Startup & funding consultant", desc: "", img: "photo/ad4.jpeg",link:"adrohan.html" },
+    { name: "Simran kaur", role: "E-commerce growth strategist", desc: "", img: "photo/ad5.jpeg",link:"adsimran.html" },
+    { name: "Aditya Verma", role: "Supply chain & operation advisor", desc: "", img: "photo/ad12.jpeg",link:"adaditya.html" },
+    { name: "Kavita Singh", role: "HR & talent management guide", desc: "", img: "photo/ad7.jpeg",link:"adkabita.html" },
+    { name: "Vikram Rao", role: "Manufacturing & process improment expert", desc: "", img: "photo/ad9.jpeg" ,link:"advikram.html"},
+    { name: "Meera Joshi", role: "Customer experience & retention specialist", desc: "", img: "photo/ad13.jpeg",link:"admera.html" },
+    { name: "Amit Bansal", role: "Export & international trade consultant", desc: "", img: "photo/ad10.jpeg",link:"adamit.html" },
+    { name: "Sneha Lyer", role: "IT & digital tranformation adviosr", desc: "", img: "photo/ad2.jpeg",link:"adsneha.html"},
+    { name: "keeta Kaur", role: "Content & social media strategist", desc: "", img: "photo/ad14.jpeg" ,link:"adkeeta.html"}
+];
+
+const wrapper = document.getElementById("cardWrapper");
+
+advisors.forEach(adv => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${adv.img}" alt="${adv.name}">
+    <h3>${adv.name}</h3>
+    <p><strong>${adv.role}</strong></p>
+    <p>${adv.desc}</p>
+    <button class="view-btn" onclick="window.location.href='${adv.link}'">View Details</button>
+  `;
+  wrapper.appendChild(card);
+});
+
+// Arrow button functionality
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
+
+rightBtn.addEventListener("click", () => {
+  wrapper.scrollBy({ left: 270, behavior: 'smooth' });
+});
+
+leftBtn.addEventListener("click", () => {
+  wrapper.scrollBy({ left: -270, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

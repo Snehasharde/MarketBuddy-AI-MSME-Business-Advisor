@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+	<h2>User Information</h2>
+	<p>Email: <span th:text="${user.email}"></span></p>
+	<p>Full Name: <span th:text="${user.fullName}"></span></p>
+	<p>Phone: <span th:text="${user.phone}"></span></p>
+
+	<h2>Profile Details</h2>
+	<form action="/profile/update" method="post" enctype="multipart/form-data" th:object="${profile}">
+		
+		<!-- CSRF token -->
+		    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+		    <input type="hidden" th:field="*{id}" />
+	    <input type="hidden" name="id" th:value="${profile.id}" />
+	    
+	    <label>Bio</label>
+	    <textarea name="bio" th:text="${profile.bio}"></textarea>
+
+	    <label>Date of Birth</label>
+	    <input type="date" name="dateOfBirth" th:value="${profile.dateOfBirth}" />
+
+	    <label>Profile Picture</label>
+	    <input type="file" name="imageFile" />
+
+	    <button type="submit">Update</button>
+	</form>
+
+
+	<img th:src="${profile.profileImageUrl}" alt="Profile Picture" width="150" height="150"/>
+
+
+</body>
+</html>

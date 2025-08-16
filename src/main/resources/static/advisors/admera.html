@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinamay Archarya - Business & Investment Strategist</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+  .profile-header {
+    text-align: center;
+    padding: 20px;
+  }
+  .profile-header img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+  }
+  .profile-header h1 {
+    margin-top: 15px;
+    font-size: 28px;
+  }
+  .profile-header h3 {
+    color: #555;
+    font-weight: normal;
+  }
+  .description {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+  }
+  /* Chat icon button */
+  .chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  /* Chat box hidden by default */
+  .chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    height: 0;
+    opacity: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  /* When open */
+  .chat-box.open {
+    height: 450px;
+    opacity: 1;
+  }
+  .chat-header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+  .chat-input button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="profile-header">
+    <img src="photo/ad13.jpeg" alt="Chinamay Archarya">
+    <h1>Meera Joshi</h1>
+    <h3>Customer experience & retention specialist</h3>
+  </div>
+  <div class="description">
+<p>
+Meera Joshi is a highly accomplished Customer Experience and Retention Specialist with extensive expertise in designing and executing comprehensive customer engagement strategies that drive loyalty and sustainable business growth.</p>
+<p> With a deep understanding of customer journey mapping, behavioral analytics, and feedback management, Meera helps organizations identify critical touchpoints and implement targeted initiatives to enhance overall customer satisfaction.</p>
+<p> She excels at developing personalized loyalty programs, effective communication frameworks, and seamless support systems that foster long-term relationships and maximize customer lifetime value.</p>
+<p> Meera’s data-driven approach enables businesses to proactively address pain points, reduce churn rates, and create memorable experiences that differentiate brands in competitive markets.</p>
+<p> Working collaboratively with marketing, sales, and service teams, she ensures alignment between customer experience goals and organizational objectives, enabling companies to build a strong reputation for excellence.</p>
+<p> Her passion for innovation and continuous improvement, combined with her strategic insights, makes Meera Joshi an invaluable partner for businesses seeking to elevate their customer experience and retention capabilities to new heights.
+</p>
+
+
+</div>
+</div>
+
+<!-- Chat Icon -->
+<div class="chat-icon" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">Chat with Chinamay</div>
+  <div class="chat-messages" id="chatMessages">
+    <p><strong>Chinamay:</strong> Hi! How can I assist you today?</p>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chatBox");
+  const chatMessages = document.getElementById("chatMessages");
+
+  function toggleChat() {
+    chatBox.classList.toggle("open");
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendMessage("You", message);
+    input.value = "";
+
+    try {
+      let res = await fetch("https://api.quotable.io/random");
+      if (!res.ok) throw new Error("API Error");
+      let data = await res.json();
+      appendMessage("Chinamay", data.content);
+    } catch (err) {
+      appendMessage("Chinamay", "Sorry, I couldn't fetch a response right now.");
+    }
+  }
+
+  function appendMessage(sender, text) {
+    const msg = document.createElement("p");
+    msg.innerHTML = '<strong>${sender}:</strong> ${text}';
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

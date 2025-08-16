@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-section">
+  <h2 class="form-title">Get In Touch</h2>
+  <div class="underline"></div>
+
+  <form class="contact-form">
+    <div class="form-group">
+      <input type="text" placeholder="Your Name" required />
+    </div>
+    <div class="form-group">
+      <input type="email" placeholder="Your Email" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" placeholder="Your Phone" />
+    </div>
+    <div class="form-group">
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+
+<style>
+  .form-section {
+    background: #f3f7fb;
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    color: #2b4c6f;
+    margin-bottom: 10px;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+    background: #2b4c6f;
+    margin: 0 auto 40px;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #2b4c6f;
+    box-shadow: 0 0 8px rgba(43, 76, 111, 0.2);
+  }
+
+  .submit-btn {
+    background: #2b4c6f;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .submit-btn:hover {
+    background: #1a3551;
+  }
+
+  @media (max-width: 600px) {
+    .form-section {
+      padding: 60px 15px;
+    }
+  }
+</style>
+
+
+
+</body>
+</html>

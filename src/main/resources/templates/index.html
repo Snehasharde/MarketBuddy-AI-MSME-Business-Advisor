@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MarketBuddy – AI MSME Business Advisor</title>
+ <link rel="stylesheet" href="all.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* footer */
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-top {
+      border-bottom: 1px solid #444;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-top a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-top a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1 1 180px;
+      font-size: 14px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    .app-links {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .app-links img {
+      height: 40px;
+      margin: 0 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .social-icons img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .social-icons img:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .footer-columns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-top {
+        font-size: 12px;
+      }
+    }
+    /* footer end  */
+/* nav bar */
+
+@media screen and (max-width: 480px) {
+        .content {
+            padding: 0 10px;
+        }
+        nav a.button {
+            text-align: center;
+        }
+    }
+    nav a.button {
+            border: 1px solid #19191a;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        section.hero {
+            text-align: center;
+            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
+            color: white;
+            padding: 100px 20px 50px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation (will be colored dynamically) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor; /* Will be updated with JS */
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--active-color); /* This will be set via JS */
+}
+
+/*---------------------------------------------------------------------------------------*/
+  /* Floating button */
+  .contact-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2b4c6f;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  /* Hidden form popup */
+  .contact-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    max-width: 95%;
+    height: 0;
+    opacity: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Show form */
+  .contact-popup.open {
+    height: auto;
+    opacity: 1;
+    padding: 20px;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+    color: #2b4c6f;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+    background: #2b4c6f;
+    margin: 0 auto 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .contact-popup input,
+  .contact-popup textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .contact-popup input:focus,
+  .contact-popup textarea:focus {
+    border-color: #2b4c6f;
+    box-shadow: 0 0 8px rgba(43, 76, 111, 0.2);
+  }
+
+  .submit-btn {
+    background: #2b4c6f;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .submit-btn:hover {
+    background: #1a3551;
+  }
+
+
+
+
+/* background image  */
+
+
+.hero-slider {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Light overlay directly on background for dimming */
+.hero-slider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6); /* Light overlay */
+  z-index: 1;
+}
+
+/* Content directly on image, outside box */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #111; /* Dark text */
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* who we are */
+  .section-title {
+    text-align: center;
+    padding: 40px 20px 10px;
+    font-size: 2rem;
+    color: #2b4c6f;
+  }
+
+  .underline {
+    width: 60px;
+    height: 2px;
+    background: #ccc;
+    margin: 0 auto 30px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card h3 {
+    color: #2b4c6f;
+    font-size: 20px;
+    margin: 16px 0 8px;
+  }
+
+  .card .card-line {
+    width: 40px;
+    height: 2px;
+    background: #ccc;
+    margin: 0 auto 12px;
+  }
+
+  .card p {
+    padding: 0 16px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .card button {
+    background: #2b4c6f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .card button:hover {
+    background: #1a3551;
+  }
+
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  /* image work  */
+  .quote-section {
+    background-color: #0d5c89; /* MarketBuddy style blue */
+    color: white;
+    text-align: center;
+    padding: 150px 20px 120px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .quote-section .quote {
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .quote-section .author {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #e2e8f0; /* light grey/white for subtle author name */
+  }
+
+  @media (max-width: 600px) {
+    .quote-section .quote {
+      font-size: 1.4rem;
+    }
+
+    .quote-section .author {
+      font-size: 0.9rem;
+    }
+  }
+/* from work */
+
+  .advisor-form-container {
+    background: #f5f9fc;
+    padding: 50px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d5c89;
+    margin-bottom: 5px;
+  }
+
+  .form-title span {
+    color: #ff4d4d;
+  }
+
+  .form-subtitle {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .required {
+    color: #ff4d4d;
+  }
+
+  .info-box {
+    background: #e6f2fa;
+    color: #0d5c89;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+  }
+
+  .info-box a {
+    color: #0d5c89;
+    text-decoration: underline;
+  }
+
+  .advisor-form {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .form-left {
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .form-right {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 20px;
+    margin-top: 10px;
+  }
+
+  .checkbox-grid label {
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+  }
+
+  select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.3s;
+  }
+
+  select:focus {
+    border-color: #0d5c89;
+    box-shadow: 0 0 5px rgba(13, 92, 137, 0.2);
+  }
+
+  .hint {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+
+  .inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .btn-reset,
+  .btn-search {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn-reset {
+    background: #e2e8f0;
+    color: #333;
+  }
+
+  .btn-reset:hover {
+    background: #cbd5e0;
+  }
+
+  .btn-search {
+    background: #0d5c89;
+    color: white;
+  }
+
+  .btn-search:hover {
+    background: #0b4a6b;
+  }
+
+  @media (max-width: 768px) {
+    .advisor-form {
+      flex-direction: column;
+    }
+  }
+/* work */
+.growth-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 8%;
+  background: linear-gradient(to right, #dfd3d3 50%, #aeb1b4 100%);
+  position: relative;
+}
+
+.growth-content {
+  max-width: 500px;
+}
+
+.growth-subtitle {
+  color: #0d5c89;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.growth-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.growth-description {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.growth-image {
+  background: url('your-image.jpg') center/cover no-repeat;
+  border-radius: 12px;
+  height: 320px;
+  width: 100%;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  grid-column: span 2;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.service-card a {
+  color: #0d5c89;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+  .growth-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .growth-image {
+    height: 200px;
+  }
+
+  .service-cards {
+    grid-column: span 1;
+  }
+}
+/* new work */
+
+  .stats-section {
+    background-color: #002b6b; /* Dark MarketBuddy Blue */
+    color: white;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .stats-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .stats-text {
+    flex: 1 1 400px;
+  }
+
+  .stats-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .stats-text p {
+    font-size: 1rem;
+    color: #d1d5db;
+    line-height: 1.5;
+  }
+
+  .stats-cards {
+    display: flex;
+    gap: 20px;
+    flex: 1 1 300px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    background-color: #0041b3; /* Lighter Blue */
+    padding: 30px 40px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 180px;
+    flex: 1;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .stat-card p {
+    font-size: 0.9rem;
+    color: #e5e7eb;
+  }
+
+  @media (max-width: 768px) {
+    .stats-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .stats-cards {
+      justify-content: center;
+    }
+  }
+
+/* third */
+.process-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  gap: 0;
+  width: 100%;
+  min-height: 350px;
+}
+
+.process-image {
+  flex: 1;
+}
+
+.process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process-text {
+  flex: 1;
+  background: #0c5a87; /* Blue background */
+  color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process-text h2 {
+  margin-bottom: 10px;
+}
+
+.process-text hr {
+  width: 50px;
+  border: 2px solid #fff;
+  margin-bottom: 20px;
+}
+
+.process-text p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.process-text .btn {
+  display: inline-block;
+  background: #fff;
+  color: #0c5a87;
+  text-decoration: none;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.process-text .btn:hover {
+  background: #f2f2f2;
+}
+
+ /*arrow button*/
+    .carousel-wrapper { 
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      position: relative; /* arrow position ke liye */
+    }
+    .carousel {
+      display: flex;
+      overflow-x: hidden; /* arrows ke saath scroll bar hatane ke liye */
+      scroll-behavior: smooth;
+      gap: 15px;
+    }
+    .card {
+      flex: 0 0 250px;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .view-btn {
+      background: #0b5cff;
+      color: rgb(242, 242, 247);
+      border: none;
+      padding: 8px 16px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .view-btn:hover {
+      background: #084bcc;
+    }
+
+    /* Arrow buttons */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgb(144, 125, 230);
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .arrow.left {
+      left: -20px;
+    }
+    .arrow.right {
+      right: -20px;
+    }
+
+	.profile-icon {
+	  width: 40px;
+	  height: 40px;
+	  background-color: #0f172a;
+	  color: white;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  border-radius: 50%;
+	  font-size: 22px;
+	  cursor: pointer;
+	  transition: background-color 0.3s ease, transform 0.2s ease;
+	  text-decoration: none;
+	}
+
+	.profile-icon:hover {
+	  background-color: #2dd4bf;
+	  transform: scale(1.1);
+	}
+
+
+
+  </style>
+</head>
+<body>
+<!-- nav start here -->
+
+
+<nav class="navbar">
+  <div class="logo">MarketBuddy</div>
+  <ul class="nav-links">
+    <li><a th:href="@{/index}" class="active" data-color="#ffcc00">Home</a></li>
+    <li><a th:href="@{/features}" data-color="#00c2cb">Features</a></li>
+    <li><a th:href="@{/about}" data-color="#ff6f61">Our firm</a></li>
+    <li><a th:href="@{/blog}" data-color="#82e0aa">Blogs</a></li>
+    <li><a th:href="@{/resourceC}" data-color="#82e0aa">Resource Center</a></li>
+    <li><a th:href="@{/login}" class="button">Logins</a></li>
+	<!-- Profile Icon Link -->
+    <li><a th:href="@{/profile}" target="_blank" class="profile-icon">
+	  <i class="fa-solid fa-user"></i>
+	</a></li>
+  </ul>
+</nav>
+
+<script>
+  const links = document.querySelectorAll('.nav-links a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // pehle prevent karo
+
+      // Remove active class and inline styles from all
+      links.forEach(l => {
+        l.classList.remove('active');
+        l.style.setProperty('--active-color', '');
+      });
+
+      // Add active class to clicked one
+      this.classList.add('active');
+
+      // Get color from data attribute and apply
+      const color = this.getAttribute('data-color');
+      this.style.setProperty('--active-color', color);
+
+      // Thoda delay deke page open kar do taki color dikhe
+      const href = this.getAttribute('href');
+      if (href && href !== "#") {
+        setTimeout(() => {
+          window.location.href = href;
+        }, 200); // 0.2 second delay
+      }
+    });
+  });
+</script>
+
+
+<!-- background image work -->
+<div class="hero-slider" id="heroSlider">
+  <div class="hero-content">
+    <h1>Welcome to MarketBuddy</h1>
+    <p>Your trusted AI-powered business advisor, designed to support MSMEs with smart insights, data-driven decisions, and growth strategies.</p>
+  </div>
+</div>
+
+ <script>
+  const hero = document.getElementById('heroSlider');
+  const images = [
+    'url("photo/background1.jpg")',
+    'url("photo/background2.jpg")',
+    'url("photo/background6.jpg")'
+  ];
+
+  let index = 0;
+  hero.style.backgroundImage = images[index];
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    hero.style.backgroundImage = images[index];
+  }, 20000); // 20 sec
+</script>
+
+
+
+<!-- who we are -->
+
+
+<h2 class="section-title">Who We Serve</h2>
+<div class="underline"></div>
+
+<div class="card-container">
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="photo/women.jpg" alt="Women" />
+    <h3>Women</h3>
+    <div class="card-line"></div>
+    <p>We can help you build a retirement strategy that is sure to keep you excited for what's to come.</p>
+    <a href="women.html" class="card-button">LEARN MORE</a>
+  </div>
+  <style>
+    .card-button{
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #003366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+    }
+    .card-button:hover{
+      background-color: #0055aa;
+    }
+  </style>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="photo/bussiness.jpg" alt="Business Owners" />
+    <h3>Business Owners</h3>
+    <div class="card-line"></div>
+    <p>Striking a balance between work and leisure is just one aspect of the wide-ranging in today's world.</p>
+    <a href="bussiness.html" class="card-button">LEARN MORE</a>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <img src="photo/r7.jpg" alt="Retirees" />
+    <h3>Retirees</h3>
+    <div class="card-line"></div>
+    <p>Create a retirement income strategy based on your risk tolerance, time horizon, and goals.</p>
+    <a href="retirees.html" class="card-button">LEARN MORE</a>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <img src="photo/health.jpg" alt="Health Professionals" />
+    <h3>Health Professionals</h3>
+    <div class="card-line"></div>
+    <p>Want to learn more about retirement, social security, or estate strategies? We have a wealth of resources.</p>
+    <a href="health.html" class="card-button">LEARN MORE</a>
+  </div>
+</div>
+
+<!-- image work -->
+   <div class="quote-section">
+  <p class="quote">"Although we work through financial markets, our goal is to help Main Street, not Wall Street."</p>
+  <!-- <p class="author">— Janet Yellen</p> -->
+</div>
+
+
+<!-- work -->
+
+
+<section id="growth-section" class="growth-wrapper">
+  <div class="growth-content">
+    <h4 class="growth-subtitle">Key Offerings: OCIO</h4>
+    <h2 class="growth-title">Growth, Fueled.</h2>
+    <p class="growth-description">
+      Take back time in your day and get the horsepower and team to win more — 
+      and bigger — business, faster.
+    </p>
+    <img src="photo/background7.jpg" height="260" width="1580" alt="Health Professionals" />
+  </div>
+
+  <div class="growth-image"></div>
+
+  <div class="service-cards">
+    <div class="service-card">
+       <img src="photo/portfolio.jpg" height="120" width="175" alt="Health Professionals" />
+      <h3>Portfolio Construction</h3>
+      <p>Get optimized, customized portfolios for every one of your clients.</p>
+      <a href="portfolio.html" >Learn More →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="photo/background3.jpg" height="120" width="175" alt="Health Professionals" />
+      <h3>Trade Desk</h3>
+      <p>Leverage an experienced team to streamline trade operations.</p>
+      <a href="trade.html" >Learn More →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="photo/welladvisor.jpg" height="120" alt="Health Professionals" />
+      <h3>Wealth Advisory</h3>
+      <p>Grow your business with exceptional wealth experiences for high-net-worth investors.</p>
+      <a href="wealth.html" >Learn More →</a>
+    </div>
+
+    <div class="service-card">
+      <img src="photo/health.jpg" height="122.5" width="170" alt="Health Professionals" />
+      <h3>Custom Indexing</h3>
+      <p>Create truly personalized, tax-efficient client portfolios.</p>
+      <a href="health.html" >Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- new work -->
+ <div class="stats-section">
+  <div class="stats-content">
+    <div class="stats-text">
+      <h2>Engineered to attract and convert</h2>
+      <p>Our website manager for wealth firm advisors gives you all the tools you need to drive traffic, capture leads, and win clients.</p>
+    </div>
+    <div class="stats-cards">
+      <div class="stat-card">
+        <h3>50M+</h3>
+        <p>Potential layout combinations</p>
+      </div>
+      <div class="stat-card">
+        <h3>25K+</h3>
+        <p>Active advisor websites built using our platform</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form work -->
+<div class="advisor-form-container">
+  <h2 class="form-title">Find an <span>Advisor</span></h2>
+<p class="form-subtitle">Find a financial professional to help you meet your goals.<br>
+    Fields with an asterisk <span class="required">*</span> are required.</p>
+    
+
+
+
+<!-- Floating Contact Button -->
+<div class="contact-btn" onclick="toggleForm()">✉</div>
+
+<!-- Popup Form -->
+<div class="contact-popup" id="contactFormPopup">
+  <h2 class="form-title">Get In Touch</h2>
+  <div class="underline"></div>
+
+  <form id="contactForm" th:action="#" method="post">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required />
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required />
+    </div>
+    <div class="form-group">
+      <input type="tel" name="phone" placeholder="Your Phone" />
+    </div>
+    <div class="form-group">
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</div>
+
+<script>
+  const popup = document.getElementById("contactFormPopup");
+
+  function toggleForm() {
+    popup.classList.toggle("open");
+  }
+
+  // Form submission
+  document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = {
+      name: this.name.value,
+      email: this.email.value,
+      phone: this.phone.value,
+      message: this.message.value
+    };
+
+    try {
+      const res = await fetch("https://api.example.com/contact", { // Change endpoint
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        alert("Message sent successfully!");
+        this.reset();
+        popup.classList.remove("open");
+      } else {
+        throw new Error("Error sending message");
+      }
+    } catch (err) {
+      alert("Failed to send message!");
+    }
+  });
+</script>
+
+
+  </p>
+<div class="carousel-wrapper">
+  <button class="arrow left" id="leftBtn">&#8592;</button>
+  <div class="carousel" id="cardWrapper"></div>
+  <button class="arrow right" id="rightBtn">&#8594;</button>
+</div>
+
+<script>
+const advisors = [
+   { name: "Chinmay Acharya", role: "Business & investment strategist", desc: "", img: "photo/image7.jpeg",link:"adchinmay.html" },
+    { name: "Shantanu Malik", role: "AI & growth mentor.", desc: "", img: "photo/ad1.jpeg",link:"adsantanu.html"},
+    { name: "Neha Sharma", role: "Marketing & SME advisor", desc: "", img: "photo/image8.jpeg",link:"adneha.html" },
+    { name: "Arjun Mehta", role: "Finance & risk management expert", desc: "", img:"photo/ad11.jpeg" ,link:"adarjun.html"},
+    { name: "Priya Kapoor", role: "Branding & digital strategy coach", desc: "", img: "photo/ad3.jpeg",link:"adpriya.html" },
+    { name: "Rohan Malhotra", role: "Startup & funding consultant", desc: "", img: "photo/ad4.jpeg",link:"adrohan.html" },
+    { name: "Simran kaur", role: "E-commerce growth strategist", desc: "", img: "photo/ad5.jpeg",link:"adsimran.html" },
+    { name: "Aditya Verma", role: "Supply chain & operation advisor", desc: "", img: "photo/ad12.jpeg",link:"adaditya.html" },
+    { name: "Kavita Singh", role: "HR & talent management guide", desc: "", img: "photo/ad7.jpeg",link:"adkabita.html" },
+    { name: "Vikram Rao", role: "Manufacturing & process improment expert", desc: "", img: "photo/ad9.jpeg" ,link:"advikram.html"},
+    { name: "Meera Joshi", role: "Customer experience & retention specialist", desc: "", img: "photo/ad13.jpeg",link:"admera.html" },
+    { name: "Amit Bansal", role: "Export & international trade consultant", desc: "", img: "photo/ad10.jpeg",link:"adamit.html" },
+    { name: "Sneha Lyer", role: "IT & digital tranformation adviosr", desc: "", img: "photo/ad2.jpeg",link:"adsneha.html"},
+    { name: "keeta Kaur", role: "Content & social media strategist", desc: "", img: "photo/ad14.jpeg" ,link:"adkeeta.html"}
+];
+
+const wrapper = document.getElementById("cardWrapper");
+
+advisors.forEach(adv => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${adv.img}" alt="${adv.name}">
+    <h3>${adv.name}</h3>
+    <p><strong>${adv.role}</strong></p>
+    <p>${adv.desc}</p>
+    <button class="view-btn" onclick="window.location.href='${adv.link}'">View Details</button>
+  `;
+  wrapper.appendChild(card);
+});
+
+// Arrow button functionality
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
+
+rightBtn.addEventListener("click", () => {
+  wrapper.scrollBy({ left: 270, behavior: 'smooth' });
+});
+
+leftBtn.addEventListener("click", () => {
+  wrapper.scrollBy({ left: -270, behavior: 'smooth' });
+});
+</script>
+
+
+
+</div>
+
+<!-- third -->
+<section class="process-section">
+  <div class="process-image">
+    <img src="photo/realtor_02.jpg" alt="House Image">
+  </div>
+
+  <div class="process-text">
+    <h2>The Process</h2>
+    <hr>
+    <p>
+      Client 1st Advisory Group is a full service financial planning and investment 
+      management firm with an emphasis in transition planning. We aim to provide 
+      thoughtful and prudent advice in the key areas of financial planning to help 
+      you along with your next chapter. Let us focus on life's grammar and 
+      punctuation, while you write the story.
+    </p>
+    <a href="/about.html" class="btn">ABOUT US</a>
+  </div>
+</section>
+
+
+
+<!-- footer -->
+ <footer>
+    <!-- Top links -->
+    <div class="footer-top">
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Community Guidelines</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Disclaimer</a>
+    </div>
+
+    <!-- Columns -->
+    <div class="footer-columns">
+      <!-- Subscribe -->
+      <div class="footer-column">
+        <h3>Subscribe</h3>
+        <ul>
+          <li><a href="#">Digital + Home Delivery</a></li>
+          <li><a href="#">Digital Access</a></li>
+          <li><a href="#">Globe2Go</a></li>
+          <li><a href="#">The New York Times</a></li>
+          <li><a href="#">Globe Email Newsletters</a></li>
+          <li><a href="#">Gift Subscription</a></li>
+        </ul>
+      </div>
+
+      <!-- Business Services -->
+      <div class="footer-column">
+        <h3>Business services</h3>
+        <ul>
+          <li><a href="#">Advertise with Us</a></li>
+          <li><a href="#">Group Subscriptions</a></li>
+          <li><a href="#">Globe Campus</a></li>
+          <li><a href="#">DataStore</a></li>
+          <li><a href="#">Globe Event Centre</a></li>
+          <li><a href="#">Leadership Institute</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Us -->
+      <div class="footer-column">
+        <h3>Contact us</h3>
+        <ul>
+          <li><a href="#">Address and Phone Number</a></li>
+          <li><a href="#">Standards Editor</a></li>
+          <li><a href="#">Staff</a></li>
+          <li><a href="#">SecureDrop</a></li>
+          <li><a href="#">Submit an article</a></li>
+        </ul>
+      </div>
+
+      <!-- Reader Services -->
+      <div class="footer-column">
+        <h3>Reader services</h3>
+        <ul>
+          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Technical Support & FAQs</a></li>
+          <li><a href="#">Subscriptions</a></li>
+          <li><a href="#">Member Benefits</a></li>
+          <li><a href="#">Privacy Settings</a></li>
+        </ul>
+      </div>
+
+      <!-- About Us -->
+      <div class="footer-column">
+        <h3>About us</h3>
+        <ul>
+          <li><a href="#">Company Information</a></li>
+          <li><a href="#">Work at The Globe</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Editorial Code of Conduct</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Licensing & Permissions</a></li>
+          <li><a href="#">Election Advertising Registry</a></li>
+          <li><a href="#">Modern Slavery Report</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- App Links -->
+    <div class="app-links">
+      <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#"><img src="https://www.svgrepo.com/show/303145/facebook-icon-logo.svg" alt="Facebook"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/303161/twitter-3-logo.svg" alt="Twitter"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/28145/linkedin.svg" alt="LinkedIn"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/349330/instagram.svg" alt="Instagram"></a>
+      <a href="#"><img src="https://www.svgrepo.com/show/354000/tiktok-icon-logo.svg" alt="TikTok"></a>
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Globe and Mail Inc. All rights reserved.</p>
+      <p>351 King Street East, Toronto, ON, Canada | Andrew Saunders, President and CEO</p>
+    </div>
+  </footer>
+
+</style>
+<script>
+/* AUTO-SWAP CAROUSEL FOR ADVISORS
+   - auto-advances every `intervalMs`
+   - pauses on hover (wrapper or arrows)
+   - loops back to start smoothly
+   - resets timer after manual nav
+*/
+
+(function() {
+  const wrapper = document.getElementById("cardWrapper");
+  const leftBtn = document.getElementById("leftBtn");
+  const rightBtn = document.getElementById("rightBtn");
+  if (!wrapper) return;
+
+  // compute single card width + gap
+  function getStep() {
+    const card = wrapper.querySelector('.card');
+    if (!card) return 270; // fallback
+    const style = getComputedStyle(wrapper);
+    // gap may be returned as "15px"
+    const gap = parseInt(style.gap || style.columnGap || 15, 10) || 15;
+    return Math.round(card.offsetWidth + gap);
+  }
+
+  const intervalMs = 3000; // change to desired auto-swap time (ms)
+  let autoTimer = null;
+  let isPaused = false;
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      if (isPaused) return;
+      const step = getStep();
+      // if near end, smoothly reset to start after last scroll
+      if (wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 5) {
+        // scroll to the very end first (ensures smoothness), then snap to 0
+        wrapper.scrollBy({ left: step, behavior: 'smooth' });
+        // small timeout to let the scroll finish, then jump to 0
+        setTimeout(() => wrapper.scrollTo({ left: 0, behavior: 'smooth' }), 450);
+      } else {
+        wrapper.scrollBy({ left: step, behavior: 'smooth' });
+      }
+    }, intervalMs);
+  }
+
+  function stopAuto() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Pause on hover over wrapper or arrows
+  ['mouseenter', 'focusin'].forEach(evt => {
+    wrapper.addEventListener(evt, () => { isPaused = true; });
+    leftBtn.addEventListener(evt, () => { isPaused = true; });
+    rightBtn.addEventListener(evt, () => { isPaused = true; });
+  });
+  ['mouseleave', 'focusout'].forEach(evt => {
+    wrapper.addEventListener(evt, () => { isPaused = false; });
+    leftBtn.addEventListener(evt, () => { isPaused = false; });
+    rightBtn.addEventListener(evt, () => { isPaused = false; });
+  });
+
+  // arrow clicks (also reset auto timer so user action is respected)
+  rightBtn.addEventListener("click", () => {
+    wrapper.scrollBy({ left: getStep(), behavior: 'smooth' });
+    restartAuto();
+  });
+
+  leftBtn.addEventListener("click", () => {
+    wrapper.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    restartAuto();
+  });
+
+  function restartAuto() {
+    stopAuto();
+    // small delay so manual scroll can complete before auto resumes
+    setTimeout(startAuto, intervalMs);
+  }
+
+  // start initially
+  startAuto();
+
+  // re-calc step on resize
+  window.addEventListener('resize', () => {
+    // force step recalculation next tick (no persistent state to update)
+  });
+})();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+ 
