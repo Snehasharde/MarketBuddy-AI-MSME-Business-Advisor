@@ -1,203 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MarketBuddy – AI MSME Business Advisor</title>
- <link rel="stylesheet" href="all.css">
+  <title>Responsive Footer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="index.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* footer */
-
-    footer {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 20px;
-    }
-
-    .footer-top {
-      border-bottom: 1px solid #444;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .footer-top a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    .footer-top a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-column {
-      flex: 1 1 180px;
-      font-size: 14px;
-    }
-
-    .footer-column h3 {
-      margin-bottom: 10px;
-      font-size: 15px;
-      color: #fff;
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-column a:hover {
-      text-decoration: underline;
-    }
-
-    .app-links {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .app-links img {
-      height: 40px;
-      margin: 0 10px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-
-    .social-icons img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0) invert(1);
-      opacity: 0.7;
-    }
-
-    .social-icons img:hover {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .footer-columns {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-top {
-        font-size: 12px;
-      }
-    }
-    /* footer end  */
-/* nav bar */
-
-@media screen and (max-width: 480px) {
-        .content {
-            padding: 0 10px;
-        }
-        nav a.button {
-            text-align: center;
-        }
-    }
-    nav a.button {
-            border: 1px solid #19191a;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        section.hero {
-            text-align: center;
-            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
-            color: white;
-            padding: 100px 20px 50px;
-            font-size: 32px;
-            font-weight: bold;
-        }
-        .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-/* Underline animation (will be colored dynamically) */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: currentColor; /* Will be updated with JS */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a.active {
-  color: var(--active-color); /* This will be set via JS */
-}
-
-/*---------------------------------------------------------------------------------------*/
   /* Floating button */
   .contact-btn {
     position: fixed;
@@ -617,7 +427,7 @@
 }
 
 .growth-subtitle {
-  color: #0d5c89;
+  color: #022031;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 10px;
@@ -627,6 +437,7 @@
   font-size: 2.5rem;
   margin-bottom: 15px;
   font-weight: 700;
+  color: #002b6b;
 }
 
 .growth-description {
@@ -902,27 +713,6 @@
       right: -20px;
     }
 
-	.profile-icon {
-	  width: 40px;
-	  height: 40px;
-	  background-color: #0f172a;
-	  color: white;
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  border-radius: 50%;
-	  font-size: 22px;
-	  cursor: pointer;
-	  transition: background-color 0.3s ease, transform 0.2s ease;
-	  text-decoration: none;
-	}
-
-	.profile-icon:hover {
-	  background-color: #2dd4bf;
-	  transform: scale(1.1);
-	}
-
-
 
   </style>
 </head>
@@ -945,6 +735,8 @@
 	</a></li>
   </ul>
 </nav>
+
+
 
 <script>
   const links = document.querySelectorAll('.nav-links a');
@@ -1018,7 +810,7 @@
     <h3>Women</h3>
     <div class="card-line"></div>
     <p>We can help you build a retirement strategy that is sure to keep you excited for what's to come.</p>
-    <a href="women.html" class="card-button">LEARN MORE</a>
+    <a href="/women.html" class="card-button">LEARN MORE</a>
   </div>
   <style>
     .card-button{
@@ -1041,7 +833,7 @@
     <h3>Business Owners</h3>
     <div class="card-line"></div>
     <p>Striking a balance between work and leisure is just one aspect of the wide-ranging in today's world.</p>
-    <a href="bussiness.html" class="card-button">LEARN MORE</a>
+    <a href="/bussiness.html" class="card-button">LEARN MORE</a>
   </div>
 
   <!-- Card 3 -->
@@ -1050,7 +842,7 @@
     <h3>Retirees</h3>
     <div class="card-line"></div>
     <p>Create a retirement income strategy based on your risk tolerance, time horizon, and goals.</p>
-    <a href="retirees.html" class="card-button">LEARN MORE</a>
+    <a href="/retirees.html" class="card-button">LEARN MORE</a>
   </div>
 
   <!-- Card 4 -->
@@ -1059,7 +851,7 @@
     <h3>Health Professionals</h3>
     <div class="card-line"></div>
     <p>Want to learn more about retirement, social security, or estate strategies? We have a wealth of resources.</p>
-    <a href="health.html" class="card-button">LEARN MORE</a>
+    <a href="/health.html" class="card-button">LEARN MORE</a>
   </div>
 </div>
 
@@ -1081,7 +873,7 @@
       Take back time in your day and get the horsepower and team to win more — 
       and bigger — business, faster.
     </p>
-    <img src="photo/background7.jpg" height="260" width="1580" alt="Health Professionals" />
+    <img src="photo/background7.jpg" height="260" width="1500" alt="Health Professionals" />
   </div>
 
   <div class="growth-image"></div>
@@ -1091,28 +883,28 @@
        <img src="photo/portfolio.jpg" height="120" width="175" alt="Health Professionals" />
       <h3>Portfolio Construction</h3>
       <p>Get optimized, customized portfolios for every one of your clients.</p>
-      <a href="portfolio.html" >Learn More →</a>
+      <a href="/portfolio.html" >Learn More →</a>
     </div>
 
     <div class="service-card">
       <img src="photo/background3.jpg" height="120" width="175" alt="Health Professionals" />
       <h3>Trade Desk</h3>
       <p>Leverage an experienced team to streamline trade operations.</p>
-      <a href="trade.html" >Learn More →</a>
+      <a href="/trade.html" >Learn More →</a>
     </div>
 
     <div class="service-card">
       <img src="photo/welladvisor.jpg" height="120" alt="Health Professionals" />
       <h3>Wealth Advisory</h3>
       <p>Grow your business with exceptional wealth experiences for high-net-worth investors.</p>
-      <a href="wealth.html" >Learn More →</a>
+      <a href="/wealth.html" >Learn More →</a>
     </div>
 
     <div class="service-card">
       <img src="photo/health.jpg" height="122.5" width="170" alt="Health Professionals" />
       <h3>Custom Indexing</h3>
       <p>Create truly personalized, tax-efficient client portfolios.</p>
-      <a href="health.html" >Learn More →</a>
+      <a href="/health.html" >Learn More →</a>
     </div>
   </div>
 </section>
@@ -1154,7 +946,7 @@
   <h2 class="form-title">Get In Touch</h2>
   <div class="underline"></div>
 
-  <form id="contactForm" th:action="#" method="post">
+  <form id="contactForm">
     <div class="form-group">
       <input type="text" name="name" placeholder="Your Name" required />
     </div>
@@ -1219,20 +1011,20 @@
 
 <script>
 const advisors = [
-   { name: "Chinmay Acharya", role: "Business & investment strategist", desc: "", img: "photo/image7.jpeg",link:"adchinmay.html" },
-    { name: "Shantanu Malik", role: "AI & growth mentor.", desc: "", img: "photo/ad1.jpeg",link:"adsantanu.html"},
-    { name: "Neha Sharma", role: "Marketing & SME advisor", desc: "", img: "photo/image8.jpeg",link:"adneha.html" },
-    { name: "Arjun Mehta", role: "Finance & risk management expert", desc: "", img:"photo/ad11.jpeg" ,link:"adarjun.html"},
-    { name: "Priya Kapoor", role: "Branding & digital strategy coach", desc: "", img: "photo/ad3.jpeg",link:"adpriya.html" },
-    { name: "Rohan Malhotra", role: "Startup & funding consultant", desc: "", img: "photo/ad4.jpeg",link:"adrohan.html" },
-    { name: "Simran kaur", role: "E-commerce growth strategist", desc: "", img: "photo/ad5.jpeg",link:"adsimran.html" },
-    { name: "Aditya Verma", role: "Supply chain & operation advisor", desc: "", img: "photo/ad12.jpeg",link:"adaditya.html" },
-    { name: "Kavita Singh", role: "HR & talent management guide", desc: "", img: "photo/ad7.jpeg",link:"adkabita.html" },
-    { name: "Vikram Rao", role: "Manufacturing & process improment expert", desc: "", img: "photo/ad9.jpeg" ,link:"advikram.html"},
-    { name: "Meera Joshi", role: "Customer experience & retention specialist", desc: "", img: "photo/ad13.jpeg",link:"admera.html" },
-    { name: "Amit Bansal", role: "Export & international trade consultant", desc: "", img: "photo/ad10.jpeg",link:"adamit.html" },
-    { name: "Sneha Lyer", role: "IT & digital tranformation adviosr", desc: "", img: "photo/ad2.jpeg",link:"adsneha.html"},
-    { name: "keeta Kaur", role: "Content & social media strategist", desc: "", img: "photo/ad14.jpeg" ,link:"adkeeta.html"}
+   { name: "Chinmay Acharya", role: "Business & investment strategist", desc: "", img: "photo/image7.jpeg",link:"advisors/adchinmay.html" },
+    { name: "Shantanu Malik", role: "AI & growth mentor.", desc: "", img: "photo/ad1.jpeg",link:"advisors/adsantanu.html"},
+    { name: "Neha Sharma", role: "Marketing & SME advisor", desc: "", img: "photo/image8.jpeg",link:"advisors/adneha.html" },
+    { name: "Arjun Mehta", role: "Finance & risk management expert", desc: "", img:"photo/ad11.jpeg" ,link:"advisors/adarjun.html"},
+    { name: "Priya Kapoor", role: "Branding & digital strategy coach", desc: "", img: "photo/ad3.jpeg",link:"advisors/adpriya.html" },
+    { name: "Rohan Malhotra", role: "Startup & funding consultant", desc: "", img: "photo/ad4.jpeg",link:"advisors/adrohan.html" },
+    { name: "Simran kaur", role: "E-commerce growth strategist", desc: "", img: "photo/ad5.jpeg",link:"advisors/adsimran.html" },
+    { name: "Aditya Verma", role: "Supply chain & operation advisor", desc: "", img: "photo/ad12.jpeg",link:"advisors/adaditya.html" },
+    { name: "Kavita Singh", role: "HR & talent management guide", desc: "", img: "photo/ad7.jpeg",link:"advisors/adkabita.html" },
+    { name: "Vikram Rao", role: "Manufacturing & process improment expert", desc: "", img: "photo/ad9.jpeg" ,link:"advisors/advikram.html"},
+    { name: "Meera Joshi", role: "Customer experience & retention specialist", desc: "", img: "photo/ad13.jpeg",link:"advisors/admera.html" },
+    { name: "Amit Bansal", role: "Export & international trade consultant", desc: "", img: "photo/ad10.jpeg",link:"advisors/adamit.html" },
+    { name: "Sneha Lyer", role: "IT & digital tranformation adviosr", desc: "", img: "photo/ad2.jpeg",link:"advisors/adsneha.html"},
+    { name: "keeta Kaur", role: "Content & social media strategist", desc: "", img: "photo/ad14.jpeg" ,link:"advisors/adkeeta.html"}
 ];
 
 const wrapper = document.getElementById("cardWrapper");
@@ -1390,95 +1182,48 @@ leftBtn.addEventListener("click", () => {
   </footer>
 
 </style>
+
 <script>
-/* AUTO-SWAP CAROUSEL FOR ADVISORS
-   - auto-advances every `intervalMs`
-   - pauses on hover (wrapper or arrows)
-   - loops back to start smoothly
-   - resets timer after manual nav
-*/
+  const wrapper1 = document.getElementById("cardWrapper");
+  const leftBtn1 = document.getElementById("leftBtn");
+  const rightBtn1 = document.getElementById("rightBtn");
 
-(function() {
-  const wrapper = document.getElementById("cardWrapper");
-  const leftBtn = document.getElementById("leftBtn");
-  const rightBtn = document.getElementById("rightBtn");
-  if (!wrapper) return;
+  // Scroll step = width of one card + gap
+  const scrollAmount = 270;
 
-  // compute single card width + gap
-  function getStep() {
-    const card = wrapper.querySelector('.card');
-    if (!card) return 270; // fallback
-    const style = getComputedStyle(wrapper);
-    // gap may be returned as "15px"
-    const gap = parseInt(style.gap || style.columnGap || 15, 10) || 15;
-    return Math.round(card.offsetWidth + gap);
-  }
+  // Manual navigation
+  rightBtn1.addEventListener("click", () => {
+    wrapper1.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
 
-  const intervalMs = 3000; // change to desired auto-swap time (ms)
-  let autoTimer = null;
-  let isPaused = false;
+  leftBtn1.addEventListener("click", () => {
+    wrapper1.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
 
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(() => {
-      if (isPaused) return;
-      const step = getStep();
-      // if near end, smoothly reset to start after last scroll
-      if (wrapper.scrollLeft + wrapper.clientWidth >= wrapper.scrollWidth - 5) {
-        // scroll to the very end first (ensures smoothness), then snap to 0
-        wrapper.scrollBy({ left: step, behavior: 'smooth' });
-        // small timeout to let the scroll finish, then jump to 0
-        setTimeout(() => wrapper.scrollTo({ left: 0, behavior: 'smooth' }), 450);
-      } else {
-        wrapper.scrollBy({ left: step, behavior: 'smooth' });
-      }
-    }, intervalMs);
-  }
+  // Auto rotate every 4 seconds
+  let autoRotate = setInterval(() => {
+    wrapper1.scrollBy({ left: scrollAmount, behavior: "smooth" });
 
-  function stopAuto() {
-    if (autoTimer) {
-      clearInterval(autoTimer);
-      autoTimer = null;
+    // If scrolled to the end → go back to start
+    if (wrapper1.scrollLeft + wrapper1.clientWidth >= wrapper1.scrollWidth) {
+      setTimeout(() => {
+        wrapper1.scrollTo({ left: 0, behavior: "smooth" });
+      }, 800);
     }
-  }
+  }, 4000);
 
-  // Pause on hover over wrapper or arrows
-  ['mouseenter', 'focusin'].forEach(evt => {
-    wrapper.addEventListener(evt, () => { isPaused = true; });
-    leftBtn.addEventListener(evt, () => { isPaused = true; });
-    rightBtn.addEventListener(evt, () => { isPaused = true; });
+  // Pause on hover
+  wrapper1.addEventListener("mouseenter", () => clearInterval(autoRotate));
+  wrapper1.addEventListener("mouseleave", () => {
+    autoRotate = setInterval(() => {
+      wrapper1.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      if (wrapper1.scrollLeft + wrapper1.clientWidth >= wrapper1.scrollWidth) {
+        setTimeout(() => {
+          wrapper1.scrollTo({ left: 0, behavior: "smooth" });
+        }, 800);
+      }
+    }, 4000);
   });
-  ['mouseleave', 'focusout'].forEach(evt => {
-    wrapper.addEventListener(evt, () => { isPaused = false; });
-    leftBtn.addEventListener(evt, () => { isPaused = false; });
-    rightBtn.addEventListener(evt, () => { isPaused = false; });
-  });
-
-  // arrow clicks (also reset auto timer so user action is respected)
-  rightBtn.addEventListener("click", () => {
-    wrapper.scrollBy({ left: getStep(), behavior: 'smooth' });
-    restartAuto();
-  });
-
-  leftBtn.addEventListener("click", () => {
-    wrapper.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    restartAuto();
-  });
-
-  function restartAuto() {
-    stopAuto();
-    // small delay so manual scroll can complete before auto resumes
-    setTimeout(startAuto, intervalMs);
-  }
-
-  // start initially
-  startAuto();
-
-  // re-calc step on resize
-  window.addEventListener('resize', () => {
-    // force step recalculation next tick (no persistent state to update)
-  });
-})();
 </script>
 
 </body>

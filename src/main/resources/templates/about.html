@@ -4,217 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        /* footer */
-
-    footer {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 20px;
-    }
-
-    .footer-top {
-      border-bottom: 1px solid #444;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .footer-top a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    .footer-top a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-column {
-      flex: 1 1 180px;
-      font-size: 14px;
-    }
-
-    .footer-column h3 {
-      margin-bottom: 10px;
-      font-size: 15px;
-      color: #fff;
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-column a:hover {
-      text-decoration: underline;
-    }
-
-    .app-links {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .app-links img {
-      height: 40px;
-      margin: 0 10px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-
-    .social-icons img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0) invert(1);
-      opacity: 0.7;
-    }
-
-    .social-icons img:hover {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .footer-columns {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-top {
-        font-size: 12px;
-      }
-    }
-    /* footer end  */
-
-  
-/* nav */
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="index.css">
+<style>
+    .mb-heading{
+  font-weight:500; letter-spacing:.2px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  margin: 4px 2px 10px;
+  color: var(--text);
+  text-align: center;
 }
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-/* Underline animation (will be colored dynamically) */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: currentColor; /* Will be updated with JS */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a.active {
-  color: var(--active-color); /* This will be set via JS */
-}
-@media screen and (max-width: 480px) {
-        .content {
-            padding: 0 10px;
-        }
-        nav a.button {
-            text-align: center;
-        }
-    }
-    nav a.button {
-            border: 1px solid #19191a;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        section.hero {
-            text-align: center;
-            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
-            color: white;
-            padding: 100px 20px 50px;
-            font-size: 32px;
-            font-weight: bold;
-        }
-/* nav end  */
-/* Hero Section */
-/* .about-hero {
-  background: url('photo/neb1.jpg') center/cover no-repeat;
-  /* background-color :#3e3e6dab */
-  /*height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(7, 7, 7);
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-} */
 
 .about-hero::after {
   content: "";
@@ -251,7 +51,7 @@
 }
 
 .about-text p {
-  color: #f7f1f1;
+  color: #3d3b3b;
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -283,7 +83,7 @@
 }
 
 .about-text h2 {
-  color: #0c5a87;
+  color: #099cf1;
   margin-bottom: 15px;
 }
 
@@ -293,7 +93,7 @@
 }
 
 .about-text p {
-  color: #555;
+  color: #e9e5e5;
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -306,6 +106,8 @@
   width: 100%;
   border-radius: 10px;
 }
+
+
 </style>
 </head>
 <body>
@@ -321,7 +123,8 @@
     <li><a th:href="@{/login}" class="button">Logins</a></li>
 	<!-- Profile Icon Link -->
     <li><a th:href="@{/profile}" target="_blank" class="profile-icon">
-	  <i class="fa-solid fa-user"></i></a></li>
+	  <i class="fa-solid fa-user"></i>
+	</a></li>
   </ul>
 </nav>
 <style>
@@ -360,47 +163,11 @@
 </script>
 <!-- nav end -->
 
-<!-- 
-<section class="about-hero">
-    <h1>Our Firms</h1>
-  </section> -->
-  <div class="container">
-  <section class="about-hero">
-    <h2>Our Firms</h2>
-  </section>
-</div>
+  
+  
+    <h2 class="mb-heading">Our Firms</h2>
+  
 
-<style>
-.about-hero {
-  /* background: url('photo/neb1.jpg') center/cover no-repeat; */
-  background-color: #ccc;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-  border-radius: 20px;            /* Rounded corners like features */
-  overflow: hidden;
-  /* box-shadow: 0 8px 20px rgba(0,0,0,0.15); Shadow like cards */
-}
-
-/* Dark overlay for text visibility */
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3);    /* Transparent black overlay */
-}
-
-.about-hero h2 {
-  position: relative;
-  z-index: 1;                     /* Text above overlay */
-}
-</style>
   <section class="about-content">
     <div class="about-text">
       <h2>At our firm, we have the client—and only the client—in mind.</h2>
@@ -514,7 +281,7 @@
 <style>
   .about-section {
     font-family: 'Segoe UI', Tahoma,  Verdana, sans-serif;
-    background: #f5f7fa;
+    /* background: #f5f7fa; */
     color: #333;
     line-height: 1.8;
     padding-bottom: 60px;
@@ -542,7 +309,7 @@
   .about-content {
     max-width: 1500px;
     margin: auto;
-    background: #fff;
+    /* background: #fff; */
     padding: 40px;
     box-shadow: 0 5px 30px rgba(0,0,0,0.08);
     border-radius: 12px;
@@ -554,7 +321,7 @@
   }
 
   .about-highlight {
-    background: #f0f8ff;
+    /* background: #f0f8ff; */
     padding: 25px;
     border-left: 5px solid #0066cc;
     border-radius: 10px;
@@ -571,7 +338,7 @@
   }
 
   .about-mission {
-    background: #fffdf5;
+    /* background: #fffdf5; */
     padding: 25px;
     border-left: 5px solid #ffcc33;
     border-radius: 10px;

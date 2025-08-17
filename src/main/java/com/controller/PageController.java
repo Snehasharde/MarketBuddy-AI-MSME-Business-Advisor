@@ -1,6 +1,8 @@
 package com.controller;
 
 import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -12,7 +14,8 @@ public class PageController {
     }
 	
 	@GetMapping("/index")
-    public String Index() {
+    public String Index(Model model) {
+		
         return "index"; // public Index page
     }
 
@@ -51,16 +54,5 @@ public class PageController {
         return "index"; // login.html
     }
 
-    
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "dashboard"; // secure page
-    }
-    
-    @GetMapping("/chatadvisor")
-    public String chatAdvisor() {
-        return "chatadvisor"; // secure page
-    }
-    
    
 }

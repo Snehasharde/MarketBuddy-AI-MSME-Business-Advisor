@@ -20,10 +20,19 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/", "/login", "/register", "/about", "/contact").permitAll()
-                .requestMatchers("/css/**", "/js/**", "/images/**","/photo/**","/all.css").permitAll()
+                .requestMatchers("/css/**", "/js/**", "/images/**","/photo/**","/all.css","/index.css").permitAll()
+                        // Public pages accessible without login
+                        .requestMatchers(
+                            "/index",
+                            "/about",
+                            "/blog",
+                            "/features",                      
+                            "/persAvasior",
+                            "/resourceC"
+                        ).permitAll()
                 .anyRequest().authenticated()
             )
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/chat/**"))
+            //.csrf(csrf -> csrf.ignoringRequestMatchers("/chat/**"))
             .formLogin(form -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/doLogin")
@@ -41,6 +50,5 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
+    
 }

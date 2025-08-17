@@ -4,216 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="index.css">
     <style>
-        /* footer */
-
-    footer {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 20px;
-    }
-
-    .footer-top {
-      border-bottom: 1px solid #444;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .footer-top a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    .footer-top a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-column {
-      flex: 1 1 180px;
-      font-size: 14px;
-    }
-
-    .footer-column h3 {
-      margin-bottom: 10px;
-      font-size: 15px;
-      color: #fff;
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-column a:hover {
-      text-decoration: underline;
-    }
-
-    .app-links {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .app-links img {
-      height: 40px;
-      margin: 0 10px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-
-    .social-icons img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0) invert(1);
-      opacity: 0.7;
-    }
-
-    .social-icons img:hover {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .footer-columns {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-top {
-        font-size: 12px;
-      }
-    }
-    /* footer end  */
-
-/* nav */
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-.navbar {
+       .mb-heading{
+  font-weight:500; letter-spacing:.2px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  margin: 4px 2px 10px;
+  color: var(--text);
+  text-align: center;
+}
+.about-hero {
+  /* background: url('photo/neb1.jpg') center/cover no-repeat; */
+  /* height: 250px; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
+  color: white;
+  font-size: 3rem;
   font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
   position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+  /* border-radius: 20px;            Rounded corners like features */
+  overflow: hidden;
+  /* box-shadow: 0 8px 20px rgba(250, 248, 248, 0.15); Shadow like cards */
 }
-
-/* Underline animation (will be colored dynamically) */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: currentColor; /* Will be updated with JS */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a.active {
-  color: var(--active-color); /* This will be set via JS */
-}
-@media screen and (max-width: 480px) {
-        .content {
-            padding: 0 10px;
-        }
-        nav a.button {
-            text-align: center;
-        }
+  .card-button{
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #003366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
     }
-    nav a.button {
-            border: 1px solid #19191a;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        section.hero {
-            text-align: center;
-            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
-            color: rgb(32, 32, 32);
-            padding: 100px 20px 50px;
-            font-size: 32px;
-            font-weight: bold;
-        }
+    .card-button:hover{
+      background-color: #0055aa;
+    }
+   .header {
+    text-align: center;
+    padding: 100px 20px 40px;
+    background: url('header-background.jpg') no-repeat center center/cover;
+    color: rgb(24, 23, 23);
+    font-size: 40px;
+    font-weight: 400;
+  }
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
+  gap: 12px;
+  padding: 20px 40px; /* Left-Right space */
+  justify-items: center; /* Cards center me align */
+}
 
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr); /* Tablet pe 2 cards */
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr; /* Mobile pe 1 card */
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 250px; /* Fixed width for better spacing */
+  text-align: center;
+  padding-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+    color: #345678;
+    margin: 15px 0 10px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #555;
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .card button {
+    background: #707070;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .card button:hover {
+    background: #345678;
+  }
+
+ 
 </style>
+
 </head>
 <body>
 <!-- nav -->
 <nav class="navbar">
   <div class="logo">MarketBuddy</div>
   <ul class="nav-links">
-    <li><a href="index.html" class="active" data-color="#ffcc00">Home</a></li>
-    <li><a href="features.html" data-color="#00c2cb">Features</a></li>
-    <li><a href="about.html" data-color="#ff6f61">Our firm</a></li>
-    <li><a href="blog.html" data-color="#82e0aa">Blogs</a></li>
-    <li><a href="resourceC.html" data-color="#82e0aa">Resource Center</a></li>
-    <li><a href="login.html" class="button">Logins</a></li>
+    <li><a href="/index.html" class="active" data-color="#ffcc00">Home</a></li>
+    <li><a href="/features.html" data-color="#00c2cb">Features</a></li>
+    <li><a href="/about.html" data-color="#ff6f61">Our firm</a></li>
+    <li><a href="/blog.html" data-color="#82e0aa">Blogs</a></li>
+    <li><a href="/resourceC.html" data-color="#82e0aa">Resource Center</a></li>
+    <li><a href="/login1.html" class="button">Logins</a></li>
+    <li><a href="profile.html" target="_blank" class="profile-icon">
+      <i class="fa-solid fa-user"></i>
+    </a></li>
+
   </ul>
 </nav>
 
@@ -251,62 +178,11 @@
 
 <!-- Resource Center Header -->
  <div class="container">
-  <section class="about-hero">
-    <h2>Resource Center</h2>
-  </section>
+  
+    <h2 class="mb-heading">Resource Center</h2>
+  
 </div>
 
-<style>
-.about-hero {
-  /* background: url('photo/neb1.jpg') center/cover no-repeat; */
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-  border-radius: 20px;            /* Rounded corners like features */
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(250, 248, 248, 0.15); /* Shadow like cards */
-}
-
-/* Dark overlay for text visibility */
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3);    /* Transparent black overlay */
-}
-
-.about-hero h2 {
-  position: relative;
-  z-index: 1;                     /* Text above overlay */
-}
-</style>
-<!-- 
- 
-<div class="container">
-    <section class="about-hero">
-     <h2>Resource Center</h2>
-  </section>
-<style>
- .about-hero {
-  background: url('photo/neb1.jpg') center/cover no-repeat;
-  background-color: #f5f5f7;
-  /* background-color :#3e3e6dab */
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(7, 7, 7);
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-}
-</style> -->
 
 <!-- <div class="header">Resource Center</div> -->
 
@@ -319,20 +195,8 @@
     <p>Manage personal affairs while you're alive and control the distribution of wealth upon your death.</p>
     <a href="/estare.html" class="card-button">LEARN MORE</a>
   </div>
-  <style>
-    .card-button{
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #003366;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-    }
-    .card-button:hover{
-      background-color: #0055aa;
-    }
-  </style>
+  
+  
 
 
   <div class="card">
@@ -416,137 +280,8 @@
 </div>
 
 <!-- CSS for Styling -->
-<style>
-  .header {
-    text-align: center;
-    padding: 100px 20px 40px;
-    background: url('header-background.jpg') no-repeat center center/cover;
-    color: rgb(24, 23, 23);
-    font-size: 40px;
-    font-weight: 400;
-  }
-/* 
-  .cards-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 cards per row */
- /* gap: 10px;
-  padding: 20px 10px;
-}
 
-@media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(3, 1fr); /* 2 cards per row on tablet */
-/*  }
-}
-
-@media (max-width: 600px) {
-  .cards-container {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
- /* }
-}
-
-  .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 100%;
-    text-align: center;
-    padding-bottom: 20px;
-    transition: transform 0.2s ease;
-  } */
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards per row on desktop */
-  gap: 12px;
-  padding: 20px 40px; /* Left-Right space */
-  justify-items: center; /* Cards center me align */
-}
-
-@media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr); /* Tablet pe 2 cards */
-  }
-}
-
-@media (max-width: 600px) {
-  .cards-container {
-    grid-template-columns: 1fr; /* Mobile pe 1 card */
-  }
-}
-
-.card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 250px; /* Fixed width for better spacing */
-  text-align: center;
-  padding-bottom: 20px;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-  .card:hover {
-    transform: translateY(-5px);
-  }
-
-  .card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-
-  .card h3 {
-    font-size: 20px;
-    color: #345678;
-    margin: 15px 0 10px;
-  }
-
-  .card p {
-    font-size: 14px;
-    color: #555;
-    padding: 0 15px;
-    margin-bottom: 20px;
-  }
-
-  .card button {
-    background: #707070;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
-  }
-
-  .card button:hover {
-    background: #345678;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 764px) {
-    .cards-container {
-      justify-content: center;
-    }
-
-    .card {
-      width: 45%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card {
-      width: 90%;
-    }
-  }
-</style>
-
-
+ 
 <!-- footer -->
   <footer>
     <!-- Top links -->

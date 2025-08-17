@@ -4,208 +4,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client 1st Advisory Group - Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="index.css">
   <style>
-    
-    footer {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 20px;
-    }
 
-    .footer-top {
-      border-bottom: 1px solid #444;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
 
-    .footer-top a {
-      color: #ccc;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    .footer-top a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .footer-column {
-      flex: 1 1 180px;
-      font-size: 14px;
-    }
-
-    .footer-column h3 {
-      margin-bottom: 10px;
-      font-size: 15px;
-      color: #fff;
-    }
-
-    .footer-column ul {
-      list-style: none;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-column a:hover {
-      text-decoration: underline;
-    }
-
-    .app-links {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .app-links img {
-      height: 40px;
-      margin: 0 10px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid #444;
-      padding-top: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 15px;
-    }
-
-    .social-icons img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(0) invert(1);
-      opacity: 0.7;
-    }
-
-    .social-icons img:hover {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .footer-columns {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .footer-top {
-        font-size: 12px;
-      }
-    }
-    /* footer end  */
-
-    /* nav */
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
+/* cotainer */
+/* ========= MARKETBUDDY BLOG NAMESPACE ========= */
+:root {
+  --bg: #0b1220;
+  --card: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.16);
+  --text: #e8eefc;
+  --muted: #a7b3d1;
+  --accent: #7aa2ff;
+  --accent-2: #5bdbb0;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 18px;
 }
 
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+/* Optional: light mode */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #ffffff;
+    --card: rgba(255,255,255,0.9);
+    --border: rgba(10,29,61,0.08);
+    --text: #0b1220;
+    --muted:#55627e;
+    --shadow: 0 8px 24px rgba(20,36,80,.15);
+  }
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+/* ---- Only for blog section; no global body/html resets ---- */
+.mb-wrap{
+  width:min(100%, 880px);
+  display:grid;
+  gap:18px;
+  margin: 32px auto;        /* center within page flow */
+  padding: 0 18px;
 }
 
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+.mb-heading{
+  font-weight:700; letter-spacing:.2px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  margin: 4px 2px 10px;
+  color: var(--text);
 }
 
-/* Underline animation (will be colored dynamically) */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: currentColor; /* Will be updated with JS */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
+.mb-sub{
+  color:var(--muted); margin:0 2px 8px; font-size:14px;
 }
 
-.nav-links a.active::after {
-  width: 100%;
+/* Card */
+.mb-card{
+  position:relative;
+  display:grid;
+  grid-template-columns: 88px 1fr;
+  gap:16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  overflow:hidden;
+  isolation:isolate;
+  color: var(--text);
 }
 
-.nav-links a.active {
-  color: var(--active-color); /* This will be set via JS */
+.mb-card::before{
+  content:"";
+  position:absolute; inset:-1px;
+  background: conic-gradient(from 210deg, transparent 0 65%, rgba(122,162,255,.16) 74%, rgba(91,219,176,.16) 90%, transparent 100%);
+  z-index:-1; filter: blur(18px); opacity:.65; transition:opacity .25s ease;
 }
-@media screen and (max-width: 480px) {
-        .content {
-            padding: 0 10px;
-        }
-        nav a.button {
-            text-align: center;
-        }
-    }
-    nav a.button {
-            border: 1px solid #19191a;
-            padding: 5px 15px;
-            border-radius: 20px;
-        }
-        section.hero {
-            text-align: center;
-            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
-            color: white;
-            padding: 100px 20px 50px;
-            font-size: 32px;
-            font-weight: bold;
-        }
-/* nav end  */
+.mb-card:hover{ transform: translateY(-2px);}
+.mb-card:hover::before{ opacity:.9; }
 
+.mb-badge{
+  position:absolute; top:12px; right:12px;
+  font-size:11px; color:#0a1324; background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  padding:6px 10px; border-radius:999px; font-weight:700; letter-spacing:.3px;
+}
 
+/* Icon box */
+.mb-icon{
+  width:88px; height:88px; border-radius:14px;
+  background:
+    radial-gradient(60px 40px at 30% 30%, rgba(122,162,255,.35), transparent 60%),
+    radial-gradient(70px 50px at 70% 70%, rgba(91,219,176,.35), transparent 60%),
+    rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  display:grid; place-items:center;
+}
+.mb-icon svg{ width:56px; height:56px; }
+
+/* Content */
+.mb-content{ display:grid; gap:8px; }
+.mb-title{
+  margin:0;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height:1.35;
+}
+.mb-title a{
+  color:inherit; text-decoration:none; outline: none;
+}
+.mb-title a:focus-visible{ box-shadow:0 0 0 3px rgba(122,162,255,.45); border-radius:6px; }
+
+.mb-meta{ color:var(--muted); font-size:13px; display:flex; gap:10px; flex-wrap:wrap }
+.mb-dot::before{ content:"• "; opacity:.6 }
+.mb-excerpt{ margin:2px 0 6px; color:var(--text); opacity:.92 }
+
+/* CTA */
+.mb-actions{ display:flex; gap:12px; align-items:center; margin-top:6px }
+.mb-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 14px; border-radius:12px; font-weight:600;
+  border:1px solid var(--border); background:rgba(255,255,255,.06);
+  text-decoration:none; color:var(--text);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.mb-btn:hover{ transform: translateY(-1px); border-color: rgba(122,162,255,.45); }
+.mb-btn:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(122,162,255,.45); }
+
+/* Blog list cards (your .blog-post layout) */
+.mb-post{
+  display:flex; gap:16px; align-items:stretch;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding:14px;
+  margin: 18px 0;
+}
+.mb-post img{ width: 180px; height: 120px; object-fit: cover; border-radius: 10px; }
+.mb-post-content{ display:grid; gap:6px; }
+.mb-post-content .mb-post-title{ font-size: 20px; font-weight: 700; color: var(--text); margin:0; }
+.mb-post-content .mb-post-date{ font-size: 13px; color: var(--muted); }
+.mb-post-content .mb-post-desc{ font-size: 15px; color: var(--text); opacity:.92 }
+.mb-post-content .mb-read-more{ display:inline-block; margin-top:6px; color: var(--accent); text-decoration:none; font-weight:600; }
+
+@media (max-width: 520px){
+  .mb-card{ grid-template-columns: 1fr; }
+  .mb-icon{ width:64px; height:64px }
+  .mb-icon svg{ width:44px; height:44px }
+  .mb-post{ flex-direction: column; }
+  .mb-post img{ width:100%; height: 180px; }
+}
+
+/* Optional: site-wide background (agar global chahiye) */
+.site-bg {
+  background: radial-gradient(1200px 600px at 10% 0%, #1b2a55 0%, transparent 60%),
+              radial-gradient(900px 500px at 100% 20%, #1a4a41 0%, transparent 55%),
+              var(--bg);
+}
 
 </style>
 </head>
-<body>
+<body class="site-bg">
 
 <!-- nav -->
 <nav class="navbar">
@@ -218,13 +176,11 @@
     <li><a th:href="@{/resourceC}" data-color="#82e0aa">Resource Center</a></li>
     <li><a th:href="@{/login}" class="button">Logins</a></li>
 	<!-- Profile Icon Link -->
-	<li><a th:href="@{/profile}" target="_blank" class="profile-icon">
-     <i class="fa-solid fa-user"></i></a></li>
+    <li><a th:href="@{/profile}" target="_blank" class="profile-icon">
+	  <i class="fa-solid fa-user"></i>
+	</a></li>
   </ul>
 </nav>
-<style>
-  
-</style>
 
 <script>
   const links = document.querySelectorAll('.nav-links a');
@@ -257,209 +213,257 @@
   });
 </script>
 <!-- nav end -->
- <div class="container">
-  <section class="about-hero">
-    <h2>Blogs</h2>
-  </section>
-</div>
+  <div class="mb-wrap">
+    <h1 class="mb-heading">Blogs</h1>
+    <p class="mb-sub">Latest insights from our Hackathon Finance Tracker</p>
 
-<style>
-.about-hero {
-  /* background: url('photo/neb1.jpg') center/cover no-repeat; */
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(14, 13, 13);
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-  border-radius: 20px;            /* Rounded corners like features */
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(247, 244, 244, 0.15); /* Shadow like cards */
-}
+    <!-- BLOG CARD -->
+    <article class="mb-card" aria-label="Upbeat Q2 Results and Trade News Cheer Investors">
+      <span class="mb-badge" aria-hidden="true">Market Update</span>
 
-/* Dark overlay for text visibility */
-.about-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3);    /* Transparent black overlay */
-}
+      <!-- Icon (inline SVG) -->
+      <div class="mb-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18M3 21h18"/>
+          <rect x="5" y="10" width="3" height="8" rx="1"/>
+          <rect x="10.5" y="7" width="3" height="11" rx="1"/>
+          <rect x="16" y="4" width="3" height="14" rx="1"/>
+          <path d="M5 6c3 1.3 6 2 7.8.7 2.3-1.6 5.1-2 7.2-1.7" />
+        </svg>
+      </div>
 
-.about-hero h2 {
-  position: relative;
-  z-index: 1;                     /* Text above overlay */
-}
-</style>
-<!-- 
+      <!-- Text Content -->
+      <div class="mb-content">
+        <h2 class="mb-title">
+          <a href="b1.html" aria-describedby="post-date">
+            Upbeat Q2 Results and Trade News Cheer Investors
+          </a>
+        </h2>
 
-<div class="container">
-    <section class="about-hero">
-     <h2>Weekly Market Insights</h2>
-  </section>
-<style>
- .about-hero {
-  background: url('photo/neb1.jpg') center/cover no-repeat;
-  /* background-color :#3e3e6dab */
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(12, 12, 12);
-  font-size: 3rem;
-  font-weight: bold;
-  position: relative;
-}
-</style>
- -->
-  <!-- Blog 1 -->
-  <div class="blog-post">
-    <img src="photo/market.jpg" alt="Market Insights">
-    <div class="blog-content">
-      <h2>Upbeat Q2 Results and Trade News Cheer Investors</h2>
-      <p class="date">Tuesday, July 29, 2025</p>
-      <p class="desc">
-        The stock market witnessed strong growth this week as multiple companies reported 
-        better-than-expected Q2 earnings. Optimism around new trade agreements added 
-        momentum, driving the S&P 500 up by 1.46% and lifting investor confidence.
-      </p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </div>
+        <div id="mb-post-date" class="mb-meta" role="text">
+          <span>Tuesday, July 29, 2025</span>
+          <span class="mb-dot">S&P 500 up 1.46%</span>
+          <span class="mb-dot">Global Trade</span>
+        </div>
 
-  <!-- Blog 2 -->
-  <div class="blog-post">
-    <img src="photo/market.jpg" alt="Market Insights">
-    <div class="blog-content">
-      <h2>T For Tariffs, T For Trillion: Markets Hold Steady</h2>
-      <p class="date">Tuesday, July 15, 2025</p>
-      <p class="desc">
-        Investors kept a close eye on tariff discussions this week. While concerns about 
-        global trade remain, the trillion-dollar tech sector showed resilience, keeping 
-        the Nasdaq stable amid fluctuating economic indicators.
-      </p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </div>
+        <p class="mb-excerpt">
+          The market rallied as multiple companies posted better-than-expected Q2 earnings.
+          Fresh trade agreements added momentum, lifting sentiment and signaling stronger cross-border
+          collaboration—much like a winning hackathon team turning insights into measurable impact.
+        </p>
 
-  <!-- Blog 3 -->
-  <div class="blog-post">
-    <img src="photo/market.jpg" alt="Market Insights">
-    <div class="blog-content">
-      <h2>Inflation Slows Down, Boosting Market Confidence</h2>
-      <p class="date">Tuesday, July 8, 2025</p>
-      <p class="desc">
-        Cooling inflation data gave investors a reason to cheer this week, 
-        as central banks signaled a pause in rate hikes. Retail and consumer 
-        goods sectors outperformed, showing strong post-summer recovery.
-      </p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </div>
+        <div class="mb-actions">
+          <a class="mb-btn" href="b1.html" aria-label="Read full article on Upbeat Q2 Results">
+            Read more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="mb-meta">2 min read • Finance</span>
+        </div>
+      </div>
+    </article>
 
-  <!-- Blog 4 -->
-  <div class="blog-post">
-    <img src="photo/market.jpg" alt="Market Insights">
-    <div class="blog-content">
-      <h2>Energy Stocks Surge Amid Rising Oil Prices</h2>
-      <p class="date">Tuesday, July 1, 2025</p>
-      <p class="desc">
-        Crude oil prices climbed above $90 a barrel, sparking a rally in 
-        energy stocks. Investors flocked to the energy sector, while 
-        broader indices remained mixed amid caution in the tech space.
-      </p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </div>
+    <!-- Tip: Duplicate the <article> above for more posts and just change content -->
+ 
+  <!-- BLOG2 CARD -->
+    <article class="mb-card" aria-label="Upbeat Q2 Results and Trade News Cheer Investors">
+      <span class="mb-badge" aria-hidden="true">Market Update</span>
 
-  <!-- Blog 5 -->
-  <div class="blog-post">
-    <img src="photo/market.jpg" alt="Market Insights">
-    <div class="blog-content">
-      <h2>Federal Reserve Signals Stability in Interest Rates</h2>
-      <p class="date">Tuesday, June 24, 2025</p>
-      <p class="desc">
-        The Federal Reserve's announcement of maintaining interest rates 
-        steady brought relief to investors. Banking and financial sectors 
-        showed moderate gains as markets anticipated stable growth ahead.
-      </p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-  </div>
+      <!-- Icon (inline SVG) -->
+      <div class="mb-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18M3 21h18"/>
+          <rect x="5" y="10" width="3" height="8" rx="1"/>
+          <rect x="10.5" y="7" width="3" height="11" rx="1"/>
+          <rect x="16" y="4" width="3" height="14" rx="1"/>
+          <path d="M5 6c3 1.3 6 2 7.8.7 2.3-1.6 5.1-2 7.2-1.7" />
+        </svg>
+      </div>
+ <!-- Text Content -->
+      <div class="mb-content">
+        <h2 class="mb-title">
+          <a href="b2.html" aria-describedby="post-date">
+            T For Tariffs, T For Trillion: Markets Hold Steady
+          </a>
+        </h2>
 
-</div>
-<style>
-    .container {
-  width: 85%;
-  max-width: 12000px;
-  margin: 40px auto;
-}
+        <div id="mb-post-date" class="mb-meta" role="text">
+          <span>Tuesday, July 15, 2025</span>
+          <span class="mb-dot">S&P 500 up 1.46%</span>
+          <span class="mb-dot">Global Trade</span>
+        </div>
 
-.container h1 {
-  color: #0077b6;
-  margin-bottom: 30px;
-  text-align: center;
-}
+        <p class="mb-excerpt">
+           Investors kept a close eye on tariff discussions this week. While concerns about 
+           global trade remain, the trillion-dollar tech sector showed resilience, keeping 
+           the Nasdaq stable amid fluctuating economic indicators.
+        </p>
 
-.blog-post {
-  display: flex;
-  align-items: flex-start;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 20px;
-  margin-bottom: 25px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        <div class="mb-actions">
+          <a class="mb-btn" href="b2.html" aria-label="Read full article on Upbeat Q2 Results">
+            Read more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="mb-meta">2 min read • Finance</span>
+        </div>
+      </div>
+    </article>
 
-.blog-post:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
+    <!-- Tip: Duplicate the <article> above for more posts and just change content -->
+ 
 
-.blog-post img {
-  width: 180px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-right: 20px;
-}
+ <!-- BLOG 3 CARD -->
+    <article class="mb-card" aria-label="Upbeat Q2 Results and Trade News Cheer Investors">
+      <span class="mb-badge" aria-hidden="true">Market Update</span>
 
+      <!-- Icon (inline SVG) -->
+      <div class="mb-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18M3 21h18"/>
+          <rect x="5" y="10" width="3" height="8" rx="1"/>
+          <rect x="10.5" y="7" width="3" height="11" rx="1"/>
+          <rect x="16" y="4" width="3" height="14" rx="1"/>
+          <path d="M5 6c3 1.3 6 2 7.8.7 2.3-1.6 5.1-2 7.2-1.7" />
+        </svg>
+      </div>
+ <!-- Text Content -->
+      <div class="mb-content">
+        <h2 class="mb-title">
+          <a href="b3.html" aria-describedby="post-date">
+           Inflation Slows Down, Boosting Market Confidence
+          </a>
+        </h2>
 
-.blog-content h2 {
-  margin: 0;
-  color: #0077b6;
-  font-size: 1.4rem;
-}
+        <div id="mb-post-date" class="mb-meta" role="text">
+          <span>Tuesday, July 8, 2025</span>
+          <span class="mb-dot">S&P 500 up 1.46%</span>
+          <span class="mb-dot">Global Trade</span>
+        </div>
 
-.blog-content .date {
-  color: #777;
-  font-size: 0.9rem;
-  margin: 5px 0 10px;
-}
+        <p class="mb-excerpt">
+            Cooling inflation data gave investors a reason to cheer this week, 
+            as central banks signaled a pause in rate hikes. Retail and consumer 
+           goods sectors outperformed, showing strong post-summer recovery.
+        </p>
 
-.blog-content .desc {
-  margin: 10px 0;
-  color: #444;
-  line-height: 1.5;
-}
+        <div class="mb-actions">
+          <a class="mb-btn" href="b3.html" aria-label="Read full article on Upbeat Q2 Results">
+            Read more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="mb-meta">2 min read • Finance</span>
+        </div>
+      </div>
+    </article>
 
-.read-more {
-  color: #0077b6;
-  text-decoration: none;
-  font-weight: bold;
-}
+    <!-- Tip: Duplicate the <article> above for more posts and just change content -->
+ 
+<!-- BLOG 3 CARD -->
+    <article class="mb-card" aria-label="Upbeat Q2 Results and Trade News Cheer Investors">
+      <span class="mb-badge" aria-hidden="true">Market Update</span>
 
-.read-more:hover {
-  text-decoration: underline;
-}
-</style>
+      <!-- Icon (inline SVG) -->
+      <div class="mb-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18M3 21h18"/>
+          <rect x="5" y="10" width="3" height="8" rx="1"/>
+          <rect x="10.5" y="7" width="3" height="11" rx="1"/>
+          <rect x="16" y="4" width="3" height="14" rx="1"/>
+          <path d="M5 6c3 1.3 6 2 7.8.7 2.3-1.6 5.1-2 7.2-1.7" />
+        </svg>
+      </div>
+ <!-- Text Content -->
+      <div class="mb-content">
+        <h2 class="mb-title">
+          <a href="b4.html" aria-describedby="post-date">
+           Energy Stocks Surge Amid Rising Oil Prices
+          </a>
+        </h2>
+
+        <div id="mb-post-date" class="mb-meta" role="text">
+          <span>Tuesday, July 1, 2025</span>
+          <span class="mb-dot">S&P 500 up 1.46%</span>
+          <span class="mb-dot">Global Trade</span>
+        </div>
+
+        <p class="mb-excerpt">
+            Crude oil prices climbed above $90 a barrel, sparking a rally in 
+            energy stocks. Investors flocked to the energy sector, while 
+            broader indices remained mixed amid caution in the tech space.
+        </p>
+
+        <div class="mb-actions">
+          <a class="mb-btn" href="b4.html" aria-label="Read full article on Upbeat Q2 Results">
+            Read more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="mb-meta">2 min read • Finance</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tip: Duplicate the <article> above for more posts and just change content -->
+ 
+<!-- BLOG 3 CARD -->
+    <article class="mb-card" aria-label="Upbeat Q2 Results and Trade News Cheer Investors">
+      <span class="mb-badge" aria-hidden="true">Market Update</span>
+
+      <!-- Icon (inline SVG) -->
+      <div class="mb-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18M3 21h18"/>
+          <rect x="5" y="10" width="3" height="8" rx="1"/>
+          <rect x="10.5" y="7" width="3" height="11" rx="1"/>
+          <rect x="16" y="4" width="3" height="14" rx="1"/>
+          <path d="M5 6c3 1.3 6 2 7.8.7 2.3-1.6 5.1-2 7.2-1.7" />
+        </svg>
+      </div>
+ <!-- Text Content -->
+      <div class="mb-content">
+        <h2 class="mb-title">
+          <a href="b5.html" aria-describedby="post-date">
+           Federal Reserve Signals Stability in Interest Rates
+          </a>
+        </h2>
+
+        <div id="mb-post-date" class="mb-meta" role="text">
+          <span>Tuesday, June 24, 2025</span>
+          <span class="mb-dot">S&P 500 up 1.46%</span>
+          <span class="mb-dot">Global Trade</span>
+        </div>
+
+        <p class="mb-excerpt">
+            The Federal Reserve's announcement of maintaining interest rates 
+            steady brought relief to investors. Banking and financial sectors 
+            showed moderate gains as markets anticipated stable growth ahead.
+        </p>
+
+        <div class="mb-actions">
+          <a class="mb-btn" href="b5.html" aria-label="Read full article on Upbeat Q2 Results">
+            Read more
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="mb-meta">2 min read • Finance</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Tip: Duplicate the <article> above for more posts and just change content -->
+      
+
 
 
 <!-- footer -->
-  <footer>
+ <footer>
     <!-- Top links -->
     <div class="footer-top">
       <a href="#">Terms & Conditions</a> |
@@ -557,6 +561,7 @@
       <p>351 King Street East, Toronto, ON, Canada | Andrew Saunders, President and CEO</p>
     </div>
   </footer>
+
 
 
 

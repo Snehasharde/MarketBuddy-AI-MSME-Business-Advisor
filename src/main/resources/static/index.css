@@ -1,14 +1,83 @@
-/* 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* nav bar */
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+@media screen and (max-width: 480px) {
+        .content {
+            padding: 0 10px;
+        }
+        nav a.button {
+            text-align: center;
+        }
     }
+    nav a.button {
+            border: 1px solid #19191a;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        section.hero {
+            text-align: center;
+            background: url('https://via.placeholder.com/1366x300') no-repeat center/cover;
+            color: white;
+            padding: 100px 20px 50px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Underline animation (will be colored dynamically) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: currentColor; /* Will be updated with JS */
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--active-color); /* This will be set via JS */
+}
+/* nav end */
+
+
+
+    /* footer */
 
     footer {
       background-color: #000;
@@ -116,309 +185,26 @@
         font-size: 12px;
       }
     }
-  
-/* background photo */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-   
-    .slider {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slides {
-      display: flex;
-      width: 400%; /* 4 images */
-      height: 100%;
-      animation: slideAnimation 25s infinite; /* 4 images × 5s = 20s */
-    }
-
-    .slide {
-      width: 100%;
-      flex-shrink: 0;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .slide1 { background-image: url('/photo/Black\ and\ White\ Simple\ Y2K\ Infinity\ Logo.png'); }
-    .slide2 { background-image: url('img2.jpg'); }
-    .slide3 { background-image: url('/photo/Black\ and\ White\ Simple\ Y2K\ Infinity\ Logo.png'); }
-    .slide4 { background-image: url('img4.jpg'); }
-
-    @keyframes slideAnimation {
-      0%   { transform: translateX(0%); }
-      25%  { transform: translateX(-100%); }
-      50%  { transform: translateX(-200%); }
-      75%  { transform: translateX(-300%); }
-      100% { transform: translateX(0%); }
-    }
-  
+    /* footer end  */
 
 
-    /* cards */
-
-  /* body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  padding: 40px;
-}
-
-.resource-wrapper {
-  display: flex;
-  align-items: center;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.resource-slider {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-}
-
-.card {
-  min-width: 220px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 10px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.type {
-  font-size: 12px;
-  font-weight: bold;
-  margin-top: 10px;
-  color: #666;
-}
-
-.title {
-  font-size: 14px;
-  margin-top: 5px;
-  color: #333;
-}
-
-.arrow {
-  font-size: 24px;
-  padding: 10px 15px;
-  cursor: pointer;
-  background: #007bff;
+  /* icon css */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #0f172a;
   color: white;
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
- } */ 
-
-
- /* nav start */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif; /* Only navbar font */
-}
-
-.logo {
-  color: #ffffff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-  font-family: 'Segoe UI', sans-serif; /* Navbar specific font */
 }
 
-/* Underline effect for active/hover */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: #ffd700;
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
+.profile-icon:hover {
+  background-color: #2dd4bf;
+  transform: scale(1.1);
 }
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #ffd700;
-}
-
-
-
-<!-- nav bar start -->
-   <!-- <nav class="navbar">
-  <div class="logo">MarketBuddy</div>
-  <ul class="nav-links">
-    <li><a href="#" class="active">Home</a></li>
-    <li><a href="#">Features</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</nav>  -->
-
-<nav class="nav_links">
-  <div class="logo">MarketBuddy</div>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active" >Home</a></li>
-    <li><a href="#" >Features</a></li>
-    <li><a href="about.html" >About</a></li>
-    <li><a href="login.html" >Contact</a></li>
-  </ul>
-</nav>
-
-
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  position: relative;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-/* Underline animation (will be colored dynamically) */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  left: 0;
-  bottom: 0;
-  background-color: currentColor; /* Will be updated with JS */
-  transition: width 0.3s ease-in-out;
-  border-radius: 2px;
-}
-
-.nav-links a.active::after {
-  width: 100%;
-}
-
-.nav-links a.active {
-  color: var(--active-color); /* This will be set via JS */
-}
-

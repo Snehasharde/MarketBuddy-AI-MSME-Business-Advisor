@@ -1,106 +1,77 @@
+/* Global Reset */
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-/* ==== Images Responsive ==== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 10% 0%, #1b2a55 0%, transparent 60%),
+              radial-gradient(900px 500px at 100% 20%, #1a4a41 0%, transparent 55%),
+              #0b1220;
+  color: #e8eefc;
+  line-height: 1.55;
 }
 
-/* ==== Container ==== */
-.container {
+/* Container */
+ /* .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 100px;
   margin: auto;
+  padding: 20px;
+}  */
+
+/* Navbar */
+nav {
+  background: rgba(255,255,255,0.08);
+  padding: 12px 20px;
+  border-radius: 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav a {
+  color:#e8eefc;
+  text-decoration:none;
+  margin:0 12px;
+}
+nav a:hover { color:#7aa2ff; }
+
+/* Footer */
+footer {
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-radius:12px;
+} 
+
+/* Responsive */
+@media(max-width:750px){
+  nav { flex-direction:column; gap:10px; }
+  .container { width:95%; padding:10px; }
 }
 
-/* ==== Headings ==== */
-h1, h2, h3, h4, h5 {
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-
-/* ==== Buttons ==== */
-button, .btn {
-  background-color: #0f172a;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover, .btn:hover {
-  background-color: #2dd4bf;
-}
-
-/* ==== Flexbox Utility ==== */
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-/* ==== Grid Utility ==== */
-.grid {
-  display: grid;
-  gap: 10px;
-}
-
-/* ==== Responsive Breakpoints ==== */
-
-/* Mobile First (Default) */
-
-/* Tablets */
-@media (min-width: 600px) {
-  .container {
-    width: 85%;
-  }
-}
-
-/* Laptops */
-@media (min-width: 1024px) {
-  .container {
-    width: 80%;
-  }
-}
-
-/* Desktop Large Screens */
-@media (min-width: 1440px) {
-  .container {
-    width: 75%;
-  }
-}
-/*  */
-/* ==== Navbar Styles ==== */
 
 
-/* ==== Mobile Menu Button ==== */
-.nav-toggle {
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: none;
-}
+/* blog */
+  /*  :root{
+      --bg: #262e50;
+      --card: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.16);
+      --text: #e8eefc;
+      --muted: #a7b3d1;
+      --accent: #7aa2ff;
+      --accent-2:#5bdbb0;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #eef3ff;
+        --card: rgba(255,255,255,0.9);
+        --border: rgba(10,29,61,0.08);
+        --text: #0b1220;
+        --muted:#55627e;
+        --shadow: 0 8px 24px rgba(20,36,80,.15);
+      }
+    }
 
-/* ==== Responsive Breakpoints ==== */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #0f172a;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 0;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-}
+     */

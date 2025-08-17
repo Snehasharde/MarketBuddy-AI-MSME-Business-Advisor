@@ -1,19 +1,20 @@
 package com.Entity;
 
-import jakarta.persistence.CascadeType;
+import java.io.Serializable;
+
 //import lombok.Data;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 //@Data
 @Table(name = "users")
 public class User {
+	
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -27,9 +28,19 @@ public class User {
   
   private long phone;
   
+//  private String role; // ROLE_USER or ROLE_ADVISOR
+  
 //One-to-One relationship with UserDetails
 //  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 //  private UserDetails userDetails;
+
+//public String getRole() {
+//	return role;
+//}
+//
+//public void setRole(String role) {
+//	this.role = role;
+//}
 
 	public long getPhone() {
 	return phone;

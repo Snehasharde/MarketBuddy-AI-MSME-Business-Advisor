@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinamay Archarya - Business & Investment Strategist</title>
+ <link rel="stylesheet" href="all.css">
+<style>
+  
+  .container {
+    max-width: 1100px;
+    max-height: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+  .profile-header {
+    text-align: center;
+    padding: 20px;
+  }
+  .profile-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+  }
+  .profile-header h1 {
+    margin-top: 15px;
+    font-size: 28px;
+  }
+  .profile-header h3 {
+    color: #555;
+    font-weight: normal;
+  }
+  .description {
+    background: rgb(248, 246, 246);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+    color: #0c0c0c;
+  }
+  /* Chat icon button */
+  .chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+  /* Chat box hidden by default */
+  .chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    height: 0;
+    opacity: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  /* When open */
+  .chat-box.open {
+    height: 450px;
+    opacity: 1;
+  }
+  .chat-header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+  }
+  .chat-input button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+</style>
+<link rel="stylesheet" href="all.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="profile-header">
+    <img src="photo/ad2.jpeg" alt="Chinamay Archarya">
+    <h1>Sneha Iyer</h1>
+    <h3>IT & digital tranformation adviosr</h3>
+  </div>
+  <div class="description">
+<p>
+Sneha Iyer is a highly skilled IT and Digital Transformation Advisor with extensive experience in guiding organizations through the complex process of integrating advanced technologies to achieve operational excellence and business growth. She possesses deep expertise in areas such as cloud computing, enterprise architecture, cybersecurity, data analytics, and process automation.</p>
+<p> Sneha specializes in evaluating existing IT environments, identifying gaps and opportunities, and designing customized digital transformation roadmaps that align with an organization’s strategic objectives.</p>
+<p> Her approach emphasizes not only technological upgrades but also change management and workforce enablement, ensuring that digital initiatives are successfully adopted across all levels of the business.</p>
+<p> Sneha collaborates closely with stakeholders across departments to foster innovation, streamline workflows, and enhance data-driven decision-making capabilities.</p>
+<p> By leveraging emerging technologies and industry best practices, she helps companies improve agility, reduce costs, and stay competitive in rapidly evolving markets.</p>
+<p> Sneha Iyer’s commitment to continuous learning and her ability to bridge the gap between technology and business strategy make her an invaluable advisor for organizations aiming to future-proof their operations and achieve long-term digital success.
+</p><p> Her approach emphasizes not only technological upgrades but also change management and workforce enablement, ensuring that digital initiatives are successfully adopted across all levels of the business.</p>
+<p> Sneha collaborates closely with stakeholders across departments to foster innovation, streamline workflows, and enhance data-driven decision-making capabilities.</p>
+<p> By leveraging emerging technologies and industry best practices, she helps companies improve agility, reduce costs, and stay competitive in rapidly evolving markets.</p>
+<p> Sneha Iyer’s commitment to continuous learning and her ability to bridge the gap between technology and business strategy make her an invaluable advisor for organizations aiming to future-proof their operations and achieve long-term digital success.
+</p>
+<p> Her approach emphasizes not only technological upgrades but also change management and workforce enablement, ensuring that digital initiatives are successfully adopted across all levels of the business.</p>
+<p> Sneha collaborates closely with stakeholders across departments to foster innovation, streamline workflows, and enhance data-driven decision-making capabilities.</p>
+<p> By leveraging emerging technologies and industry best practices, she helps companies improve agility, reduce costs, and stay competitive in rapidly evolving markets.</p>
+<p> Sneha Iyer’s commitment to continuous learning and her ability to bridge the gap between technology and business strategy make her an invaluable advisor for organizations aiming to future-proof their operations and achieve long-term digital success.
+</p>
+
+
+</div>
+</div>
+
+<!-- Chat Icon -->
+<div class="chat-icon" onclick="toggleChat()">💬</div>
+
+<!-- Chat Box -->
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">Chat with Chinamay</div>
+  <div class="chat-messages" id="chatMessages">
+    <p><strong>Chinamay:</strong> Hi! How can I assist you today?</p>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById("chatBox");
+  const chatMessages = document.getElementById("chatMessages");
+
+  function toggleChat() {
+    chatBox.classList.toggle("open");
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendMessage("You", message);
+    input.value = "";
+
+    try {
+      let res = await fetch("https://api.quotable.io/random");
+      if (!res.ok) throw new Error("API Error");
+      let data = await res.json();
+      appendMessage("Chinamay", data.content);
+    } catch (err) {
+      appendMessage("Chinamay", "Sorry, I couldn't fetch a response right now.");
+    }
+  }
+
+  function appendMessage(sender, text) {
+    const msg = document.createElement("p");
+    msg.innerHTML = '<strong>${sender}:</strong> ${text}';
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
